@@ -19,29 +19,29 @@ public class MenuGerenciaLocatari {
 	public static void cadastrarlocatario() {
 		Scanner cadastrar=new Scanner(System.in);
 		System.out.println("Cadastrando Locatário...");
-		System.out.println("Digite f se quer alugar como uma pessoa fisica , ou  j como  pessoa juridica...");
+		System.out.println("Digite f se quer alugar como uma pessoa fisica, ou  j como  pessoa juridica...");
 		String escolhaTipo;
 		escolhaTipo = cadastrar.nextLine();
 		char escolha = escolhaTipo.charAt(0);
 		if((escolha == 'f')|| (escolha == 'F')) {
-		System.out.println("Coloque o seu nome completo:");
+		System.out.println("Coloque o seu Nome Completo:");
 		String nomeCompleto=cadastrar.nextLine();
-		System.out.println("Coloque o seu Cpf:");
+		System.out.println("Coloque o seu CPF:");
 		String cpf=cadastrar.nextLine();
-		System.out.println("Coloque o seu estado civil:");
+		System.out.println("Coloque o seu Estado Civil:");
 		String estadoCivil=cadastrar.nextLine();
 		
 		System.out.println("Dados cadastrados: ");
-		System.out.println("nome completo: "+nomeCompleto);
-		System.out.println("cpf: "+cpf);
-		System.out.println("estado civil: "+estadoCivil);
+		System.out.println("Nome Completo: "+nomeCompleto);
+		System.out.println("CPF: "+cpf);
+		System.out.println("Estado Civil: "+estadoCivil);
 		
 			
 		}else if((escolha == 'j')|| (escolha == 'J')) {
 			
-		System.out.println("Coloque o nome social da sua empresa:");
+		System.out.println("Coloque o Nome Social da sua Empresa:");
 		String nomeEmpresa=cadastrar.nextLine();
-		System.out.println("Coloque o nome da pessoa autorizada a realizar locações:");
+		System.out.println("Coloque o Nome da Pessoa Autorizada a Realizar Locações:");
 		String nome=cadastrar.nextLine();
 		System.out.println("Dados cadastrados: ");
 		System.out.println("Nome da Empresa: "+nomeEmpresa);
@@ -49,7 +49,7 @@ public class MenuGerenciaLocatari {
 		
 			
 		}
-		System.out.println("Coloque o seu endereço:");
+		System.out.println("Coloque o seu Endereço:");
 		String Endereco=cadastrar.nextLine();
 		System.out.println("Coloque o seu Email:");
 		String Email=cadastrar.nextLine();
@@ -62,12 +62,12 @@ public class MenuGerenciaLocatari {
 	   
 	}
 	public static void buscarlocatario() {
-		System.out.println("Metodo Buscar Locátario...");
+		System.out.println("Método - Buscar Locátario...");
 	}
 	
 	public static void pesquisarlocatario() {
 		Scanner PesquisarL=new Scanner(System.in);	
-		System.out.println("Metodo pesquisar locatario.;");
+		System.out.println("Método pesquisar locatario.;");
 		System.out.println("Digite o nome do locatário:");
 		String PesquisaLoc=PesquisarL.nextLine();
 		System.out.println("- Locatário pesquisado -");
@@ -78,6 +78,6 @@ public class MenuGerenciaLocatari {
 	}
 	
 	public static void excluirlocatario() {
-		System.out.println("Metodo Excluir Locátario...");
+		System.out.println("Método - Excluir Locátario...");
 	}
 }

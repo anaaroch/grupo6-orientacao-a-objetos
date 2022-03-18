@@ -30,8 +30,8 @@ public class CadastrarVeículos {
 	public static void CadastrarVeiculo() {
 		
 	System.out.println("-------------------- Cadastro de Veículos -----------------\n");
-	System.out.println("                 1 - Cadastrar Veículos de Passeio           ");
-	System.out.println("                 2 - Cadastrar veículo utilitário            ");
+	System.out.println("                 1 - Cadastrar Veículo de Passeio            ");
+	System.out.println("                 2 - Cadastrar Veículo Utilitário            ");
 	System.out.println("                 3 - Cadastrar Motocicleta                   ");
 	System.out.println("                                                             ");
 	System.out.println("                 Escolha uma dessas opções:                  ");
@@ -42,7 +42,7 @@ public class CadastrarVeículos {
 		System.out.println("Cadastrando Veículo de Passeio...");
 		System.out.println("Coloque a Categoria do Veículo:");
 		String CategoriaVeiculo=cadastrarP.nextLine();
-		System.out.println("O veículo possui ar condicionado? Digite Sim/sim se possuir e Não/não se não possuir:");
+		System.out.println("O veículo possui Ar Condicionado? Digite Sim/sim se possuir e Não/não se não possuir:");
 		String Arcondicionado=cadastrarP.nextLine();
 		String Ar;
 		Ar=Arcondicionado;
@@ -60,7 +60,7 @@ public class CadastrarVeículos {
 		} else if(Direcao=="Não"||Direcao=="não") {
 			System.out.print("Direcao Hidraulica: Não possui");
 		}
-		System.out.println("O veículo tem câmbio automático? Digite Sim/sim se possuir e Não/não se não possuir:");
+		System.out.println("O veículo tem Câmbio Automático? Digite Sim/sim se possuir e Não/não se não possuir:");
 		String CambioAutomatico=cadastrarP.nextLine();;
 		String Cambio;
 		Cambio=CambioAutomatico;
@@ -72,14 +72,14 @@ public class CadastrarVeículos {
 		System.out.println("Dados cadastrados: ");
 		System.out.println("Categoria do Veículo: "+CategoriaVeiculo);
 		System.out.println("Arcondicionado: "+Ar);
-		System.out.println("Ano de Fabricação: "+Direcao);
-		System.out.println("Ano Modelo: "+Cambio);
+		System.out.println("Direção Hidráulica: "+Direcao);
+		System.out.println("Câmbio Automa´tico: "+Cambio);
 	}
 	
 	public static void CadastrarUtilitario() {
 		Scanner cadastrarU=new Scanner(System.in);	
 	    System.out.println("Cadastrando Utilitario");
-	    System.out.println("O veículo é do tipo carga ou passageiro? Digite carga ou passageiro");		
+	    System.out.println("O veículo é do tipo Carga o Passageiro? Digite carga ou passageiro");		
 		String EscolhaU=cadastrarU.nextLine();
 		String EscolhaUt;
 	    EscolhaUt=EscolhaU;
@@ -121,7 +121,7 @@ public class CadastrarVeículos {
 		} else if((Piloto=="Não")||(Piloto=="não")) {
 			System.out.print("Piloto Automatico: Não possui");
 		}
-		System.out.println("Digite o modo de pilotagem: Cidade/Estrada/Sport/Off-Road");
+		System.out.println("Digite o Modo de Pilotagem: Cidade/Estrada/Sport/Off-Road");
 		String MododePilotagem=cadastrarM.nextLine();
 		String Modo;
 		Modo=MododePilotagem;

@@ -7,8 +7,8 @@ public class MenuGerenciaFrota {
 		System.out.println("------------------- Menu [Gerência Frota] -----------------\n");
 		System.out.println("                 1 - Cadastrar Veículos                      ");
 		System.out.println("                 2 - Pesquisar Veículos                      ");
-		System.out.println("                 3 - Atualizar dados de um veículos          ");
-		System.out.println("                 4 - Remover veículo de frota                ");
+		System.out.println("                 3 - Atualizar Dados de um Veículo           ");
+		System.out.println("                 4 - Remover Veículo da Frota                ");
 		System.out.println("                                                             ");
 		System.out.println("                 Escolha uma dessas opções:                  ");
 }
@@ -36,7 +36,7 @@ public class MenuGerenciaFrota {
 			break;
 			
 			default:
-				System.out.println("Escolha inválida, tente novamente!");
+				System.out.println("Escolha inválida. Tente novamente!!");
 		}
 	}
 	public static void PesquisarVeiculos() {
@@ -59,15 +59,15 @@ public class MenuGerenciaFrota {
 			break;
 			
 			default:
-				System.out.println("Escolha inválida, tente novamente!"); 
+				System.out.println("Escolha inválida. Tente novamente!!"); 
 		}
 	}
 	
 	public static void AtualizaDados() {
-		System.out.println("Metodo Atualizar dados de um veículo...");
+		System.out.println("Método - Atualizar dados de um veículo...");
 	}
 	
 	public static void RemoveVeiculo() {
-		System.out.println("Metodo Remover veículo de frota...");
+		System.out.println("Método - Remover veículo de frota...");
 	}
 }

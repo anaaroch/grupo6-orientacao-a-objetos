@@ -7,7 +7,7 @@ public class Menu {
 	public static void Menu() {
 		System.out.println("------------------- Menu Principal ------------------------\n");
 		System.out.println("                 1 - Gerenciar Locatários                    ");
-		System.out.println("                 2 - Gerencina Frota                         ");
+		System.out.println("                 2 - Gerenciar Frota                         ");
 		System.out.println("                 3 - Gerenciar Reservas	                     ");
 		System.out.println("                 4 - Sair do Programa                        ");
 		System.out.println("                                                             ");
@@ -39,7 +39,7 @@ public class Menu {
 			break;
 			
 			default:
-				System.out.println("Escolha inválida, tente novamente!");
+				System.out.println("Escolha inválida. Tente novamente!!");
 
 	}
 	}
@@ -69,16 +69,16 @@ public class Menu {
 			break;
 			
 			default:
-				System.out.println("Escolha inválida, tente novamente!");
+				System.out.println("Escolha inválida. Tente novamente!!");
 		}
 	}
 	
 	public static void GerenciaReservas() {
-		System.out.println("Metodo GerenciaReservas...");
+		System.out.println("Método - GerenciaReservas...");
 	}
 	
 	public static void Sair() {
-		System.out.println("Metodo sair...");
+		System.out.println("Método - Sair...");
 	}
 	
 	public static void main(String [] args) {
@@ -105,7 +105,7 @@ public class Menu {
 			break;
 			
 			default:
-				System.out.println("Escolha inválida, tente novamente!");
+				System.out.println("Escolha inválida. Tente novamente!!");
 		}
 	}
 
