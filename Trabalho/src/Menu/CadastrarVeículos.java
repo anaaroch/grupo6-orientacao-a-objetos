@@ -94,7 +94,7 @@ public class CadastrarVeículos {
 	public static void CadastrarMotocicleta() {
 		Scanner cadastrarM=new Scanner(System.in);	
 		System.out.println("Cadastrando Motocicleta...");
-		System.out.println("O veículo tem ? Digite Sim/sim se possuir e Não/não se não possuir:");
+		System.out.println("O veículo tem Controle de Tração? Digite Sim/sim se possuir e Não/não se não possuir:");
 		String ControleTracao=cadastrarM.nextLine();;
 		String Controle;
 		Controle=ControleTracao;
@@ -134,33 +134,10 @@ public class CadastrarVeículos {
 		}       else if ((Piloto=="Off-Road")) {
 			      System.out.print("Modo de Pilotagem: Off-Road");
 		}
-	}
-	
-	public static void main(String[] args) {
-		cadastro();
-		
-		int escolhac=0;
-		
-		Scanner lerc=new Scanner(System.in);
-		
-		CadastrarVeiculo();
-		
-		escolhac=lerc.nextInt();
-		
-		switch(escolhac) {
-		case 1:
-			CadastrarPasseio();
-			break;
-		case 2:	
-			CadastrarUtilitario();
-			break;
-		case 3:
-			CadastrarMotocicleta();
-			break;
-			
-			default:
-				System.out.println("Escolha inválida, tente novamente!");
-		
-		}
+		System.out.println("Dados cadastrados: ");
+		System.out.println("Controle de Tração: "+Controle);
+		System.out.println("Freio ABS: "+Freio);
+		System.out.println("Piloto Automático: "+Piloto);
+		System.out.println("Modo de Pilotagem: "+Modo);
 	}
 }

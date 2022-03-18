@@ -66,40 +66,18 @@ public class MenuGerenciaLocatari {
 	}
 	
 	public static void pesquisarlocatario() {
-		System.out.println("Metodo Pesquisar Locátario...");
+		Scanner PesquisarL=new Scanner(System.in);	
+		System.out.println("Metodo pesquisar locatario.;");
+		System.out.println("Digite o nome do locatário:");
+		String PesquisaLoc=PesquisarL.nextLine();
+		System.out.println("- Locatário pesquisado -");
+		System.out.println("Locatário: "+PesquisaLoc);
+		System.out.println("- Locatários encontrados:");
+		System.out.println("**********");
+		System.out.println("...");
 	}
 	
 	public static void excluirlocatario() {
 		System.out.println("Metodo Excluir Locátario...");
-	}
-	
-	public static void main(String [] args) {
-		
-		int escolha=0;
-		
-		Scanner ler=new Scanner(System.in);
-		
-		MenuLocatario();
-		
-		escolha=ler.nextInt();
-		
-		switch(escolha) {
-		case 1:
-			cadastrarlocatario();
-			break;
-		case 2:
-			buscarlocatario();
-			break;
-		case 3:
-			pesquisarlocatario();
-			break;
-		case 4:
-			excluirlocatario();
-			break;
-			
-			default:
-				System.out.println("Escolha inválida, tente novamente!");
-			
-		}
 	}
 }
