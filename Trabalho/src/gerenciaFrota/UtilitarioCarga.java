@@ -8,8 +8,8 @@ public class UtilitarioCarga extends VeiculoUtilitario {
 	
 	public UtilitarioCarga(String tipoCompartimento, Float taraVeiculo, Float tamCompartimento, String categoriaUtilitario, 
 						   Float capacidadeDeCarga, String marca, String modelo, int anoFabricacao, int anoModelo, int renavam, 
-						   int capacidadeTanque) {
-		super(categoriaUtilitario, capacidadeDeCarga, marca, modelo, anoFabricacao, anoModelo, renavam, capacidadeTanque);
+						   int capacidadeTanque, Diaria diaria) {
+		super(categoriaUtilitario, capacidadeDeCarga, marca, modelo, anoFabricacao, anoModelo, renavam, capacidadeTanque, diaria);
 		this.tipoCompartimento = tipoCompartimento;
 		this.taraVeiculo = taraVeiculo;
 		this.tamCompartimento = tamCompartimento;

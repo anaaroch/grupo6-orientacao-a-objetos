@@ -6,8 +6,8 @@ public class VeiculoUtilitario extends Veiculo{
 	private Float capacidadeDeCarga;
 	
 	public VeiculoUtilitario(String categoriaUtilitario, Float capacidadeDeCarga, String marca, String modelo, 
-			   				 int anoFabricacao, int anoModelo, int renavam, int capacidadeTanque) {
-		super(marca, modelo, anoFabricacao, anoModelo, renavam, capacidadeTanque);
+			   				 int anoFabricacao, int anoModelo, int renavam, int capacidadeTanque, Diaria diaria) {
+		super(marca, modelo, anoFabricacao, anoModelo, renavam, capacidadeTanque, diaria);
 		this.categoriaUtilitario = categoriaUtilitario;
 		this.capacidadeDeCarga = capacidadeDeCarga;
 	}

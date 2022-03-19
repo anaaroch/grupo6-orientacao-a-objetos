@@ -8,9 +8,9 @@ public class UtilitarioPassageiros extends VeiculoUtilitario{
 	
 	public UtilitarioPassageiros(Boolean arCondicionadoUT, Boolean direcaoHidraulicaUT, Boolean tvaBordo,
 								 String categoriaUtilitario, Float capacidadeDeCarga, String marca, String modelo,
-			                     int anoFabricacao, int anoModelo, int renavam, int capacidadeTanque) {
+			                     int anoFabricacao, int anoModelo, int renavam, int capacidadeTanque, Diaria diaria) {
 		super(categoriaUtilitario, capacidadeDeCarga, marca, modelo, anoFabricacao, anoModelo, renavam, 
-			  capacidadeTanque);
+			  capacidadeTanque, diaria);
 		this.arCondicionadoUT = arCondicionadoUT;
 		this.direcaoHidraulicaUT = direcaoHidraulicaUT;
 		this.tvaBordo = tvaBordo;
