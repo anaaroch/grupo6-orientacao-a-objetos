@@ -9,8 +9,8 @@ public class VeiculoDePasseio extends Veiculo{
 	
 	public VeiculoDePasseio(String categoriaPasseio, boolean arCondicionado, boolean direcaoHidraulica, 
 			boolean cambioAutomatico, String marca, String modelo, int anoFabricacao, int anoModelo, 
-			int renavam, int capacidadeTanque) {
-		super(marca, modelo, anoFabricacao, anoModelo, renavam, capacidadeTanque);
+			int renavam, int capacidadeTanque, Diaria diaria) {
+		super(marca, modelo, anoFabricacao, anoModelo, renavam, capacidadeTanque, diaria);
 		this.categoriaPasseio = categoriaPasseio;
 		this.arCondicionado = arCondicionado;
 		this.direcaoHidraulica = direcaoHidraulica;
@@ -52,6 +52,11 @@ public class VeiculoDePasseio extends Veiculo{
 	public void setCambioAutomatico(Boolean cambioAutomatico) {
 		this.cambioAutomatico = cambioAutomatico;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "VeiculoDePasseio [categoriaPasseio=" + categoriaPasseio + ", arCondicionado=" + arCondicionado
+				+ ", direcaoHidraulica=" + direcaoHidraulica + ", cambioAutomatico=" + cambioAutomatico + "]";
+	}
 	
 }
