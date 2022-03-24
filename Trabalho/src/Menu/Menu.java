@@ -18,7 +18,7 @@ public class Menu {
 		MenuGerenciaLocatari GerenciaLocatario=new MenuGerenciaLocatari();
 		GerenciaLocatario.MenuLocatario();
 		
-		int escolhaL=0;
+		int escolhaL;
 		
 		Scanner ler=new Scanner(System.in);
 		
@@ -48,7 +48,7 @@ public class Menu {
 		MenuGerenciaFrota GerenciarFrota=new MenuGerenciaFrota();
 		GerenciarFrota.MenuGerenciaF();
 		
-		int escolhaF=1;
+		int escolhaF;
 		
 		Scanner ler=new Scanner(System.in);
 		
@@ -84,7 +84,7 @@ public class Menu {
 	public static void main(String [] args) {
 		Menu();
 		
-		int escolha=1;
+		int escolha;
 		
 		Scanner ler=new Scanner(System.in);
 		

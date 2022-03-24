@@ -17,7 +17,7 @@ public class MenuGerenciaFrota {
 		CadastrarV.cadastro();
 		CadastrarV.CadastrarVeiculo();
 		
-		int escolhac=0;
+		int escolhac;
 		
 		Scanner lerc=new Scanner(System.in);
 		
@@ -43,7 +43,7 @@ public class MenuGerenciaFrota {
 		PesquisarVeículos PesquisaV=new PesquisarVeículos();
 		PesquisarVeículos.PesquisaVeiculo();
 		
-		int escolhaPV=0;
+		int escolhaPV;
 		
 		Scanner lerPv=new Scanner(System.in);
 		
