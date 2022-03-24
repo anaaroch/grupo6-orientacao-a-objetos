@@ -74,7 +74,29 @@ public class Menu {
 	}
 	
 	public static void GerenciaReservas() {
-		System.out.println("Método - GerenciaReservas...");
+		MenuGerenciaReserva GerenciarReserva=new MenuGerenciaReserva();
+		GerenciarReserva.MenuLocatario();
+		
+		int escolhaR;
+		
+		Scanner ler=new Scanner(System.in);
+		
+		escolhaR=ler.nextInt();
+		
+		switch(escolhaR) {
+		case 1:
+			GerenciarReserva.CadastrarReserva();
+			break;
+		case 2:	
+			GerenciarReserva.EmitirRelatorio();
+			break;
+		case 3:
+			GerenciarReserva.EmitirRelatorioConsolidado();
+			break;
+			
+			default:
+				System.out.println("Escolha inválida. Tente novamente!!");
+		}
 	}
 	
 	public static void Sair() {
