@@ -13,7 +13,7 @@ public class VeiculoUtilitario extends Veiculo{
 	}
 
 	public void cadastraVut() {
-		
+		// Reservado método cadastraVut
 	}
 
 	public String getCategoriaUtilitario() {

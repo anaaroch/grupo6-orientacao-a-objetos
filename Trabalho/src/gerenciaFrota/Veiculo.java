@@ -21,7 +21,23 @@ public class Veiculo {
 		this.capacidadeTanque = capacidadeTanque;
 		this.setDiaria(diaria);
 	}
+	
+	public void cadastrarVeiculo() {
+		// Reservado método cadastrarVeiculo.
+	}
+	
+	public void excluirVeiculo() {
+		// Reservado método excluirVeiculo.
+	}
 
+	public void atualizarDados() {
+		// Reservado método atualizarDados.
+	}
+	
+	public void pesquisarVeiculo() {
+		// Reservado método pesquisarVeiculo.
+	}
+	
 	public String getMarca() {
 		return marca;
 	}

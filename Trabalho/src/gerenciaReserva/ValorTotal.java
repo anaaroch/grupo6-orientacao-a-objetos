@@ -11,6 +11,10 @@ public class ValorTotal {
 		this.seguroProtecaoTerceiros = seguroProtecaoTerceiros;
 		this.seguroProtecaoCarro = seguroProtecaoCarro;
 	}
+	
+	public float total() {
+		return (imposto+seguroProtecaoTerceiros+seguroProtecaoCarro);
+	}
 
 	public Float getImposto() {
 		return imposto;
