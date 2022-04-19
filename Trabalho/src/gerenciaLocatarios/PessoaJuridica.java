@@ -1,5 +1,6 @@
 package gerenciaLocatarios;
 
+
 public class PessoaJuridica extends Locatario{
 	
 	private String nomeSocial;

@@ -1,6 +1,6 @@
 package gerenciaFrota;
 
-public class UtilitarioPassageiros extends VeiculoUtilitario{
+public class UtilitarioPassageiros extends VeiculoUtilitario {
 	
 	private Boolean arCondicionadoUT,
 					direcaoHidraulicaUT,

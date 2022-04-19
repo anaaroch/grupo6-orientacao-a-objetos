@@ -18,7 +18,7 @@ public class VeiculoDePasseio extends Veiculo{
 	}
 	
 	public void cadastraVpass(){
-		// Reservado método cadastraVpass.
+		
 	}
 
 	public String getCategoriaPasseio() {

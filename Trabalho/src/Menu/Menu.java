@@ -2,18 +2,14 @@ package Menu;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
+import MenuGerenciaFrota.MenuGerenciaFrota;
+import MenuGerenciaLocatario.MenuGerenciaLocatari;
+import MenuReserva.MenuGerenciaReserva;
+
 public class Menu {
 	
-	public static void Menu() {
-		System.out.println("------------------- Menu Principal ------------------------\n");
-		System.out.println("                 1 - Gerenciar Locatários                    ");
-		System.out.println("                 2 - Gerenciar Frota                         ");
-		System.out.println("                 3 - Gerenciar Reservas	                     ");
-		System.out.println("                 4 - Sair do Programa                        ");
-		System.out.println("                                                             ");
-		System.out.println("                 Escolha uma dessas opções:                  ");
-	}		
-			
 	public static void GerenciaLoc() {
 		MenuGerenciaLocatari GerenciaLocatario=new MenuGerenciaLocatari();
 		GerenciaLocatario.MenuLocatario();
@@ -100,34 +96,56 @@ public class Menu {
 	}
 	
 	public static void Sair() {
-		System.out.println("Método - Sair...");
+		Scanner sair=new Scanner(System.in);
+		String Saindo;
+		
+		System.out.println("Deseja realmente sair do programa? Digite Sim/sim ou Não/não");
+		Saindo=sair.next();
+		String Sair;
+		Sair=Saindo;
+		Saindo=sair.nextLine();
+		if(Sair.equals("Sim")||Sair.equals("sim")){
+			System.out.println("Saindo do programa...");
+			System.exit(0);
+		} else if(Sair.equals("Não")||Sair.equals("não")){
+			System.out.println("Retornando ao programa...");
+			return;
+		}
 	}
 	
 	public static void main(String [] args) {
-		Menu();
 		
 		int escolha;
 		
-		Scanner ler=new Scanner(System.in);
-		
-		escolha=ler.nextInt();
-		
-		switch(escolha) {
-		case 1:
-			GerenciaLoc();
-			break;
-		case 2:	
-			GerenciaFrota();
-			break;
-		case 3:
-			GerenciaReservas();
-			break;
-		case 4:
-			Sair();	
-			break;
+		while(true) {
+		System.out.println("------------------- Menu Principal ------------------------\n"+
+		"                 1 - Gerenciar Locatários                    \n"+
+		"                 2 - Gerenciar Frota                         \n"+
+		"                 3 - Gerenciar Reservas	                  \n"+
+		"                 4 - Sair do Programa                        \n"+
+		"                                                             \n"+
+		"                 Escolha uma dessas opções:                  \n");
+			Scanner ler=new Scanner(System.in);
 			
-			default:
-				System.out.println("Escolha inválida. Tente novamente!!");
+			escolha=ler.nextInt();
+			
+			switch(escolha) {
+			case 1:
+				GerenciaLoc();
+				break;
+			case 2:	
+				GerenciaFrota();
+				break;
+			case 3:
+				GerenciaReservas();
+				break;
+			case 4:
+				Sair();	
+				break;
+				
+				default:
+					System.out.println("Escolha inválida. Tente novamente!!");
+			}
 		}
 	}
 

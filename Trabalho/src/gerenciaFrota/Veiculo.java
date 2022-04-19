@@ -11,8 +11,7 @@ public class Veiculo {
 	
 	protected Diaria diaria;
 	
-	public Veiculo(String marca, String modelo, int anoFabricacao, int anoModelo, 
-			       int renavam, int capacidadeTanque, Diaria diaria) {
+	public Veiculo(String marca, String modelo, int anoFabricacao, int anoModelo, int renavam, int capacidadeTanque, Diaria diaria) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.anoFabricacao = anoFabricacao;
@@ -21,23 +20,7 @@ public class Veiculo {
 		this.capacidadeTanque = capacidadeTanque;
 		this.setDiaria(diaria);
 	}
-	
-	public void cadastrarVeiculo() {
-		// Reservado método cadastrarVeiculo.
-	}
-	
-	public void excluirVeiculo() {
-		// Reservado método excluirVeiculo.
-	}
 
-	public void atualizarDados() {
-		// Reservado método atualizarDados.
-	}
-	
-	public void pesquisarVeiculo() {
-		// Reservado método pesquisarVeiculo.
-	}
-	
 	public String getMarca() {
 		return marca;
 	}
