@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-import MenuGerenciaFrota.MenuGerenciaFrota;
-import MenuGerenciaLocatario.MenuGerenciaLocatari;
-import MenuReserva.MenuGerenciaReserva;
+import Excecoes.ObjetoNaoEncontradoException;
+
 
 public class Menu {
+	
+	// Criando o leitor que vai ser usado em toda a classe.
+	public static Scanner scan = new Scanner(System.in);
 	
 	public static void GerenciaLoc() {
 		MenuGerenciaLocatari GerenciaLocatario=new MenuGerenciaLocatari();
@@ -16,9 +18,7 @@ public class Menu {
 		
 		int escolhaL;
 		
-		Scanner ler=new Scanner(System.in);
-		
-		escolhaL=ler.nextInt();
+		escolhaL = scan.nextInt();
 		
 		switch(escolhaL) {
 		case 1:
@@ -33,45 +33,43 @@ public class Menu {
 		case 4:
 			GerenciaLocatario.excluirlocatario();
 			break;
-			
-			default:
-				System.out.println("Escolha inválida. Tente novamente!!");
+		default:
+			System.out.println("Escolha inválida. Tente novamente!!");
 
 	}
 	}
 	
-	public static void GerenciaFrota() {
-		MenuGerenciaFrota GerenciarFrota=new MenuGerenciaFrota();
-		GerenciarFrota.MenuGerenciaF();
+	public static void GerenciaFrota() throws ObjetoNaoEncontradoException {
+		
+		MenuGerenciaFrota.MenuFrotaPrincipal();
 		
 		int escolhaF;
-		
-		Scanner ler=new Scanner(System.in);
-		
-		escolhaF=ler.nextInt();
+		escolhaF = scan.nextInt();
 		
 		switch(escolhaF) {
 		case 1:
-			GerenciarFrota.CadastroVeicul();
+			MenuGerenciaFrota.CadastroVeiculo();
 			break;
 		case 2:	
-			GerenciarFrota.PesquisarVeiculos();
+			MenuGerenciaFrota.PesquisarVeiculos();
 			break;
 		case 3:
-			GerenciarFrota.AtualizaDados();
+			MenuGerenciaFrota.AtualizaDados();
 			break;
 		case 4:
-			GerenciarFrota.RemoveVeiculo();	
+			MenuGerenciaFrota.RemoveVeiculo();	
 			break;
 			
-			default:
-				System.out.println("Escolha inválida. Tente novamente!!");
+		default:
+			System.out.println("Escolha inválida. Tente novamente!!");
 		}
+		
 	}
 	
 	public static void GerenciaReservas() {
+		
 		MenuGerenciaReserva GerenciarReserva=new MenuGerenciaReserva();
-		GerenciarReserva.MenuLocatario();
+		MenuGerenciaReserva.MenuLocatario();
 		
 		int escolhaR;
 		
@@ -96,7 +94,7 @@ public class Menu {
 	}
 	
 	public static void Sair() {
-		Scanner sair=new Scanner(System.in);
+		Scanner sair =new Scanner(System.in);
 		String Saindo;
 		
 		System.out.println("Deseja realmente sair do programa? Digite Sim/sim ou Não/não");
@@ -113,21 +111,23 @@ public class Menu {
 		}
 	}
 	
-	public static void main(String [] args) {
+	public static void main(String [] args) throws ObjetoNaoEncontradoException {
 		
-		int escolha;
+		Scanner leitor = new Scanner(System.in);
 		
-		while(true) {
-		System.out.println("------------------- Menu Principal ------------------------\n"+
-		"                 1 - Gerenciar Locatários                    \n"+
-		"                 2 - Gerenciar Frota                         \n"+
-		"                 3 - Gerenciar Reservas	                  \n"+
-		"                 4 - Sair do Programa                        \n"+
-		"                                                             \n"+
-		"                 Escolha uma dessas opções:                  \n");
-			Scanner ler=new Scanner(System.in);
+		boolean continuar = true;
+		
+		do {
 			
-			escolha=ler.nextInt();
+			System.out.println("------------------- Menu Principal ------------------------\n"+
+						   "                 1 - Gerenciar Locatários                    \n"+
+						   "                 2 - Gerenciar Frota                         \n"+
+						   "                 3 - Gerenciar Reservas	                  \n"+
+						   "                 4 - Sair do Programa                        \n"+
+						   "                                                             \n"+
+						   "                 Escolha uma dessas opções:                  \n");
+			int escolha = 0;
+			escolha = scan.nextInt();
 			
 			switch(escolha) {
 			case 1:
@@ -142,11 +142,20 @@ public class Menu {
 			case 4:
 				Sair();	
 				break;
-				
-				default:
-					System.out.println("Escolha inválida. Tente novamente!!");
+			default:
+				System.out.println("Escolha inválida. Tente novamente!!");
 			}
-		}
+			
+			System.out.println("Deseja continuar?");
+			System.out.println("(Digite 0 para não ou 1 para sim)");
+			escolha = scan.nextInt();
+			if (escolha==0) {
+				continuar = false;
+			} else if (escolha==1) {
+				continuar = true;
+			}
+
+		} while(continuar==true);
 	}
 
 }
