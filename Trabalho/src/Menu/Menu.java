@@ -5,6 +5,9 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 import Excecoes.ObjetoNaoEncontradoException;
+import MenuGerenciaFrota.MenuGerenciaFrota;
+import MenuGerenciaLocatario.MenuGerenciaLocatari;
+import MenuReserva.MenuGerenciaReserva;
 
 
 public class Menu {
@@ -12,7 +15,7 @@ public class Menu {
 	// Criando o leitor que vai ser usado em toda a classe.
 	public static Scanner scan = new Scanner(System.in);
 	
-	public static void GerenciaLoc() {
+	public static void GerenciaLoc() throws ObjetoNaoEncontradoException {
 		MenuGerenciaLocatari GerenciaLocatario=new MenuGerenciaLocatari();
 		GerenciaLocatario.MenuLocatario();
 		

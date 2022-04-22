@@ -1,16 +1,23 @@
 package MenuGerenciaLocatario;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import Excecoes.ObjetoNaoEncontradoException;
 import MenuGerenciaFrota.CadastrarVeículos;
+import gerenciaFrota.Veiculo;
+import gerenciaFrota.VeiculoDePasseio;
 import gerenciaLocatarios.Endereco;
+import gerenciaLocatarios.Locatario;
 import gerenciaLocatarios.PessoaFisica;
 import gerenciaLocatarios.PessoaJuridica;
 
 public class MenuGerenciaLocatari {
 	
-	private static final String String = null;
-	private static final Endereco Endereco = null;
+	public static Scanner leitorP = new Scanner(System.in);
+	
+	static ArrayList<PessoaFisica> Pessoas = new ArrayList<PessoaFisica>();
+	static ArrayList<PessoaJuridica> PessoasJ = new ArrayList<PessoaJuridica>();
 
 	public static void MenuLocatario() {
 		
@@ -25,22 +32,22 @@ public class MenuGerenciaLocatari {
 		}
 	
 	public static void cadastrarlocatario() {
-		CadastraLocatario CadastrarP=new CadastraLocatario();
-		CadastrarP.CadastrarPessoa();
+		CadastraLocatario.CadastrarPessoa();
 		
 		int escolhaL;
 		
-		Scanner lerc=new Scanner(System.in);
 		
-		
-		escolhaL=lerc.nextInt();
+		escolhaL=leitorP.nextInt();
 		
 		switch(escolhaL) {
 		case 1:
-			CadastrarP.cadastrarPessoaFisica();
+			PessoaFisica PessoaF = CadastraLocatario.cadastrarPessoaFisica();
+			Pessoas.add(PessoaF);
 			break;
 		case 2:	
-			CadastrarP.cadastrarPessoaJuridica();
+			System.out.println("Teste");
+			PessoaJuridica PessoaJ = CadastraLocatario.cadastrarPessoaJuridica();
+			PessoasJ.add(PessoaJ);
 			break;
 			
 			default:
@@ -52,10 +59,44 @@ public class MenuGerenciaLocatari {
 	}
 	
 	public static void pesquisarlocatario() {
-		PesquisarLocatario Pesquisar=new PesquisarLocatario();
+		PesquisarLocatario.MenuPesquisa();
+		
+		int escolhaL;
+		
+		escolhaL=leitorP.nextInt();
+		
+		switch(escolhaL) {
+		case 1:
+			PesquisarLocatario.PesquisaFisicaPessoaNome(Pessoas);
+			break;
+		case 2:	
+			PesquisarLocatario.PesquisaPessoaJuridicaNome(PessoasJ);
+			break;
+			
+			default:
+				System.out.println("Escolha inválida. Tente novamente!!");
+		}
+		
 	}
 	
-	public static void excluirlocatario() {
-		System.out.println("Método - Excluir Locátario...");
+	public static void excluirlocatario() throws ObjetoNaoEncontradoException {
+		ExcluirLocatario.MenuExcluir();
+
+		int escolhaE;
+		
+		escolhaE=leitorP.nextInt();
+		
+		switch(escolhaE) {
+		case 1:
+			ExcluirLocatario.ExcluiPessoaFisicaNome(Pessoas);
+			break;
+		case 2:	
+			ExcluirLocatario.ExcluiPessoaJuridicaNome(PessoasJ);
+			break;
+			
+			default:
+				System.out.println("Escolha inválida. Tente novamente!!");
+		}
 	}
+
 }
