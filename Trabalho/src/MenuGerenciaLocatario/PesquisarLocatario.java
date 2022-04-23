@@ -32,13 +32,14 @@ public class PesquisarLocatario {
 		// Procurando Locatario:
 		try {
 			for (PessoaFisica PessoaF : Pessoas) {
-				if (PessoaF.getNome() == NomePesquisado) {
+				if (PessoaF.getNome().contentEquals(NomePesquisado)) {
 					System.out.println("Pessoa Encontrada!");
 					System.out.println("Dados:");
 					System.out.println("Nome: " + PessoaF.getNome());
 					System.out.println("CPF: " + PessoaF.getCpf());
 					System.out.println("Email: " + PessoaF.getEmail());
 					System.out.println("Celular: " + PessoaF.getCelular());
+					
 				}
 			}
 		} catch (Exception ObjetoNaoEncontradoException) {
@@ -56,10 +57,10 @@ public class PesquisarLocatario {
 		// Procurando Locatario:
 		try {
 			for (PessoaJuridica PessoaJ : PessoasJ) {
-				if (PessoaJ.getNomeSocial() == NomePesquisadoJ) {
+				if (PessoaJ.getNomeSocial().equalsIgnoreCase(NomePesquisadoJ)) {
 					System.out.println("Pessoa Encontrada!");
 					System.out.println("Dados:");
-					System.out.println("Nome: " + PessoaJ.getNomeSocial());
+					System.out.println("Nome Social da Empresa: " + PessoaJ.getNomeSocial());
 					System.out.println("Email: " + PessoaJ.getEmail());
 					System.out.println("Celular: " + PessoaJ.getCelular());
 				}

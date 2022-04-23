@@ -23,7 +23,7 @@ public class CadastraLocatario {
 	}
 	
 	public static PessoaFisica cadastrarPessoaFisica() {
-		Endereco endereco2=new Endereco(null, null, null, null, null, null, null);
+		Endereco enderecoF=new Endereco(null, null, null, null, null, null, null);
 		PessoaFisica PessoaF= new PessoaFisica(null, null, null, null, null, null);
 
 		System.out.println("Cadastrando Locatário...");
@@ -43,27 +43,27 @@ public class CadastraLocatario {
 		System.out.println("Coloque o seu Telefone:");
 		PessoaF.setCelular(leitorP.nextLine());
 		
-		System.out.println("Infome seu endereço: \n \n");
+		System.out.println("Informe seu endereço: ");
 		System.out.println("Logadouro:");
-		String Logadouro=leitorP.nextLine();
+		enderecoF.setLogadouro(leitorP.nextLine());
 		
 		System.out.println("Numero:");
-		String Numero=leitorP.nextLine();
+		enderecoF.setNumero(leitorP.nextLine());
 		
 		System.out.println("Complemento:");
-		String Complemento=leitorP.nextLine();
+		enderecoF.setComplemento(leitorP.nextLine());
 		
 		System.out.println("Bairro:");
-		String Bairro=leitorP.nextLine();
+		enderecoF.setBairro(leitorP.nextLine());
 		
 		System.out.println("Cidade:");
-		String Cidade=leitorP.nextLine();
+		enderecoF.setCidade(leitorP.nextLine());
 		
 		System.out.println("Estado:");
-		String Estado=leitorP.nextLine();
+		enderecoF.setEstado(leitorP.nextLine());
 		
 		System.out.println("Cep:");
-		String Cep=leitorP.nextLine();
+		enderecoF.setCep(leitorP.nextLine());
 		
 		
 		
@@ -75,8 +75,8 @@ public class CadastraLocatario {
 		System.out.println("Estado Civil: "+PessoaF.getEstadocivil());
 		System.out.println("Email: "+PessoaF.getEmail());
 		System.out.println("Telefone: "+PessoaF.getCelular());
-		System.out.println("Endereço: "+endereco2.getLogadouro()+" "+endereco2.getNumero()+" "+endereco2.getComplemento()+" "+endereco2.getBairro()
-										+" "+endereco2.getCidade()+" "+endereco2.getEstado()+" "+endereco2.getCep());
+		System.out.println("Endereço: "+enderecoF.getLogadouro()+" "+enderecoF.getNumero()+" "+enderecoF.getComplemento()+" "+enderecoF.getBairro()
+										+" "+enderecoF.getCidade()+" "+enderecoF.getEstado()+" "+enderecoF.getCep());
 		System.out.println("- - - - - - - - - - - - - - - ");
 		return PessoaF;	
 		
@@ -85,6 +85,7 @@ public class CadastraLocatario {
 	}
 	
 	public static PessoaJuridica cadastrarPessoaJuridica() {
+		Endereco enderecoJ=new Endereco(null, null, null, null, null, null, null);
 		PessoaJuridica PessoaJ=new PessoaJuridica(null, null, null, null);
 		Scanner cadastrar=new Scanner(System.in);
 		System.out.println("Cadastrando Locatário...");
@@ -97,6 +98,29 @@ public class CadastraLocatario {
 		PessoaJ.setEmail(leitorP.nextLine());
 		System.out.println("Coloque o seu Telefone:");
 		PessoaJ.setCelular(leitorP.nextLine());
+		
+		System.out.println("Infome seu endereço: \n");
+		System.out.println("Logadouro:");
+		enderecoJ.setLogadouro(leitorP.nextLine());
+		
+		System.out.println("Numero:");
+		enderecoJ.setNumero(leitorP.nextLine());
+		
+		System.out.println("Complemento:");
+		enderecoJ.setComplemento(leitorP.nextLine());
+		
+		System.out.println("Bairro:");
+		enderecoJ.setBairro(leitorP.nextLine());
+		
+		System.out.println("Cidade:");
+		enderecoJ.setCidade(leitorP.nextLine());
+		
+		System.out.println("Estado:");
+		enderecoJ.setEstado(leitorP.nextLine());
+		
+		System.out.println("Cep:");
+		enderecoJ.setCep(leitorP.nextLine());
+		
 		System.out.println("- - - - - - - - - - - - - - - ");	
 		System.out.println("Dados cadastrados de Pessoa Jurídica: ");
 		System.out.println("- - - - - - - - - - - - - - - ");	
@@ -104,6 +128,8 @@ public class CadastraLocatario {
 		System.out.println("Nome da pessoa: "+nome);
 		System.out.println("Email: "+PessoaJ.getEmail());
 		System.out.println("Telefone: "+PessoaJ.getCelular());
+		System.out.println("Endereço: "+enderecoJ.getLogadouro()+" "+enderecoJ.getNumero()+" "+enderecoJ.getComplemento()+" "+enderecoJ.getBairro()
+		+" "+enderecoJ.getCidade()+" "+enderecoJ.getEstado()+" "+enderecoJ.getCep());
 		System.out.println("- - - - - - - - - - - - - - - ");
 		return PessoaJ;
 		

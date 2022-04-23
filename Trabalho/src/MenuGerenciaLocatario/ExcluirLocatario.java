@@ -27,7 +27,7 @@ public class ExcluirLocatario  {
 		locatarioProcurado = leitorP.nextLine();
 
 		for (PessoaFisica PessoaF : Pessoas) {
-			if (PessoaF.getNome() == locatarioProcurado) {
+			if (PessoaF.getNome().equalsIgnoreCase(locatarioProcurado)) {
 				Pessoas.remove(PessoaF);
 				System.out.println("Locatario removido com sucesso.");
 				break;
@@ -41,7 +41,7 @@ public class ExcluirLocatario  {
 		locatarioJProcurado = leitorP.nextLine();
 
 		for (PessoaJuridica PessoaJ : PessoasJ) {
-			if (PessoaJ.getNomeSocial() == locatarioJProcurado) {
+			if (PessoaJ.getNomeSocial().equalsIgnoreCase(locatarioJProcurado)) {
 				PessoasJ.remove(PessoaJ);
 				System.out.println("Locatario removido com sucesso.");
 				break;
