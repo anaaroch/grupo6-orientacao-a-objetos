@@ -2,12 +2,12 @@ package gerenciaFrota;
 
 public class Veiculo {
 	
-	private String marca,
-				   modelo;
-	private int anoFabricacao,
-				anoModelo,
-				renavam,
-				capacidadeTanque;
+	protected String marca,
+				     modelo;
+	protected int anoFabricacao,
+				  anoModelo,
+				  renavam,
+				  capacidadeTanque;
 	
 	protected Diaria diaria;
 	
