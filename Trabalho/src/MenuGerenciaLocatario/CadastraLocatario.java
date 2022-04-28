@@ -2,6 +2,9 @@ package MenuGerenciaLocatario;
 
 import java.util.Scanner;
 
+import Excecoes.CampoEmBrancoException;
+import Excecoes.ObjetoNaoEncontradoException;
+import Menu.Menu;
 import gerenciaLocatarios.Endereco;
 import gerenciaLocatarios.PessoaFisica;
 import gerenciaLocatarios.PessoaJuridica;
@@ -38,6 +41,31 @@ public class CadastraLocatario {
 		
 		System.out.println("Coloque o seu Email:");
 		PessoaF.setEmail(leitorP.nextLine());
+		
+		boolean validaNome = checaCampoBranco(PessoaF.getNome());
+		boolean validaCPF = checaCampoBranco(PessoaF.getCpf());
+		boolean validaEmail = checaCampoBranco(PessoaF.getEmail());
+		
+		try {
+			if (validaNome == false || validaCPF == false || validaEmail == false ) {
+				throw new CampoEmBrancoException("Erro! Um campo foi deixado em branco!");
+			}
+		} catch (CampoEmBrancoException e) {
+			System.out.println(e.getMessage());
+			System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
+			String Tentar;
+			Tentar=leitorP.nextLine();
+			if(Tentar.equals("Sim")||Tentar.equals("sim")){
+				cadastrarPessoaFisica();
+			} else if(Tentar.equals("Não")||Tentar.equals("não")){
+				System.out.println("Retornando ao programa...");
+				try {
+					Menu.main(null);
+				} catch (ObjetoNaoEncontradoException e1) {
+					e1.printStackTrace();
+				}
+		}
+		}
 		
 		System.out.println("Coloque o seu Telefone:");
 		PessoaF.setCelular(leitorP.nextLine());
@@ -83,6 +111,21 @@ public class CadastraLocatario {
 	   
 	}
 	
+	private static boolean checaCampoBranco(String string) {
+		
+	    // Checando se a string é "null".
+	    if (string == null) {
+	      return false;
+	    }
+	    // Checando se a string esta vazio (só contem espaços).
+	    else if (string.trim().isEmpty()){
+	      return false;
+	    }
+
+	    return true;
+
+	}
+
 	public static PessoaJuridica cadastrarPessoaJuridica() {
 		Endereco enderecoJ=new Endereco(null, null, null, null, null, null, null);
 		PessoaJuridica PessoaJ=new PessoaJuridica(null, null, null, null);
