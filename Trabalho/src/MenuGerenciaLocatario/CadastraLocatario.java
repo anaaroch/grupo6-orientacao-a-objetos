@@ -2,10 +2,9 @@ package MenuGerenciaLocatario;
 
 import java.util.Scanner;
 
+import gerenciaLocatarios.Endereco;
 import gerenciaLocatarios.PessoaFisica;
 import gerenciaLocatarios.PessoaJuridica;
-import gerenciaLocatarios.Endereco;
-import gerenciaLocatarios.Locatario;
 
 public class CadastraLocatario {
 	
@@ -87,13 +86,12 @@ public class CadastraLocatario {
 	public static PessoaJuridica cadastrarPessoaJuridica() {
 		Endereco enderecoJ=new Endereco(null, null, null, null, null, null, null);
 		PessoaJuridica PessoaJ=new PessoaJuridica(null, null, null, null);
-		Scanner cadastrar=new Scanner(System.in);
 		System.out.println("Cadastrando Locatário...");
 		
 		System.out.println("Coloque o Nome Social da sua Empresa:");
 		PessoaJ.setNomeSocial(leitorP.nextLine());
-		System.out.println("Coloque o Nome da Pessoa Autorizada a Realizar Locações:");
-		String nome=cadastrar.nextLine();
+		System.out.println("Coloque o CNPJ:");
+		PessoaJ.setCnpj(leitorP.nextLine());
 		System.out.println("Coloque o seu Email:");
 		PessoaJ.setEmail(leitorP.nextLine());
 		System.out.println("Coloque o seu Telefone:");
@@ -125,7 +123,7 @@ public class CadastraLocatario {
 		System.out.println("Dados cadastrados de Pessoa Jurídica: ");
 		System.out.println("- - - - - - - - - - - - - - - ");	
 		System.out.println("Nome da Empresa: "+PessoaJ.getNomeSocial());
-		System.out.println("Nome da pessoa: "+nome);
+		System.out.println("CNPJ: "+PessoaJ.getCnpj());
 		System.out.println("Email: "+PessoaJ.getEmail());
 		System.out.println("Telefone: "+PessoaJ.getCelular());
 		System.out.println("Endereço: "+enderecoJ.getLogadouro()+" "+enderecoJ.getNumero()+" "+enderecoJ.getComplemento()+" "+enderecoJ.getBairro()

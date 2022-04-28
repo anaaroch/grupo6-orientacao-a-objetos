@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Excecoes.ObjetoNaoEncontradoException;
-import MenuGerenciaFrota.CadastrarVeículos;
-import gerenciaFrota.Veiculo;
-import gerenciaFrota.VeiculoDePasseio;
-import gerenciaLocatarios.Endereco;
-import gerenciaLocatarios.Locatario;
 import gerenciaLocatarios.PessoaFisica;
 import gerenciaLocatarios.PessoaJuridica;
 
@@ -23,7 +18,7 @@ public class MenuGerenciaLocatari {
 		
 		System.out.println("------------- Menu [Gerência de Locatários] ---------------\n");
 		System.out.println("                 1 - Cadastrar Locatário                     ");
-		System.out.println("                 2 - Buscar Locatário                        ");
+		System.out.println("                 2 - Alterar Locatário                       ");
 		System.out.println("                 3 - Pesquisar Locatário                     ");
 		System.out.println("                 4 - Excluir Locatário                       ");
 		System.out.println("                                                             ");
@@ -45,7 +40,6 @@ public class MenuGerenciaLocatari {
 			Pessoas.add(PessoaF);
 			break;
 		case 2:	
-			System.out.println("Teste");
 			PessoaJuridica PessoaJ = CadastraLocatario.cadastrarPessoaJuridica();
 			PessoasJ.add(PessoaJ);
 			break;
@@ -54,8 +48,24 @@ public class MenuGerenciaLocatari {
 				System.out.println("Escolha inválida. Tente novamente!!");
 		}
 	}
-	public static void buscarlocatario() {
-		System.out.println("Método - Buscar Locátario...");
+	public static void AlterarLocatario() {
+		AlterarLocatario.MenuAltera();
+		int escolhaA;
+		
+		
+		escolhaA=leitorP.nextInt();
+		
+		switch(escolhaA) {
+		case 1:
+			AlterarLocatario.AlterarPessoaFisica(Pessoas);
+			break;
+		case 2:	
+			AlterarLocatario.AlterarPessoaJuridica(PessoasJ);
+			break;
+			
+			default:
+				System.out.println("Escolha inválida. Tente novamente!!");
+		}
 	}
 	
 	public static void pesquisarlocatario() {
@@ -67,14 +77,47 @@ public class MenuGerenciaLocatari {
 		
 		switch(escolhaL) {
 		case 1:
-			PesquisarLocatario.PesquisaFisicaPessoaNome(Pessoas);
+			PesquisarLocatario.MenuPesquisaF();
+			
+			// Lendo a escolha
+			int escolhaPF;
+			escolhaPF = leitorP.nextInt();
+			
+			// Chamando o metodo de acordo com a escolha.
+			switch(escolhaPF) {
+			case 1:
+				PesquisarLocatario.PesquisaFisicaPessoaNome(Pessoas);
+				break;
+			case 2:	
+				PesquisarLocatario.PesquisaFisicaPessoaCPF(Pessoas);
+				break;
+			case 3:
+				PesquisarLocatario.PesquisaFisicaPessoaEmail(Pessoas);
+				break;
+			default:
+				System.out.println("Escolha inválida. Tente novamente!!"); 
+			}
 			break;
 		case 2:	
-			PesquisarLocatario.PesquisaPessoaJuridicaNome(PessoasJ);
-			break;
+			PesquisarLocatario.MenuPesquisaJ();
 			
+			// Lendo a escolha
+			int escolhaPJ;
+			escolhaPJ = leitorP.nextInt();
+			
+			// Chamando o metodo de acordo com a escolha.
+			switch(escolhaPJ) {
+			case 1:
+				PesquisarLocatario.PesquisaPessoaJuridicaNome(PessoasJ);
+				break;
+			case 2:	
+				PesquisarLocatario.PesquisaPessoaJuridicaCNPJ(PessoasJ);
+				break;
+
 			default:
-				System.out.println("Escolha inválida. Tente novamente!!");
+				System.out.println("Escolha inválida. Tente novamente!!"); 
+			}
+			break;
 		}
 		
 	}
