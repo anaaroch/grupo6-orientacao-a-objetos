@@ -25,47 +25,53 @@ public class ExcluirLocatario  {
 		System.out.println("Digite o nome do locatario a ser removido: ");
 		String locatarioProcurado;
 		locatarioProcurado = leitorP.nextLine();
+		int Auxiliar=1;
 		
-		try {
-			for (PessoaFisica PessoaF : Pessoas) {
-				if (PessoaF.getNome().equalsIgnoreCase(locatarioProcurado)) {
-					System.out.println("Locatario Encontrado: " + locatarioProcurado);
-					System.out.println("CPF:"+PessoaF.getCpf());
-					System.out.println("Deseja realmente excluir esse locatário? Digite 'Sim' para exclui-lo ou 'Não' para retornar ao programa ");
-					String Excluir;
-					Excluir=leitorP.nextLine();
-					if(Excluir.equals("Sim")||Excluir.equals("sim")){
-						Pessoas.remove(PessoaF);
-						System.out.println("Locatario removido com sucesso.");
-						return;
-					}else if(Excluir.equals("Não")||Excluir.equals("não")){
-						System.out.println("Retornando ao programa...");
-						return;
-					}
-					break;
-				} else {
-					throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+		for (PessoaFisica PessoaF : Pessoas) {
+			if (PessoaF.getNome().equalsIgnoreCase(locatarioProcurado)) {
+				System.out.println("Locatario Encontrado: " + locatarioProcurado);
+				System.out.println("CPF:"+PessoaF.getCpf());
+				System.out.println("Deseja realmente excluir esse locatário? Digite 'Sim' para exclui-lo ou 'Não' para retornar ao programa ");
+				String Excluir;
+				Excluir=leitorP.nextLine();
+				if(Excluir.equals("Sim")||Excluir.equals("sim")){
+					Pessoas.remove(PessoaF);
+					System.out.println("Locatario removido com sucesso.");
+					return;
+				}else if(Excluir.equals("Não")||Excluir.equals("não")){
+					System.out.println("Retornando ao programa...");
+					return;
 				}
+				Auxiliar=1;
+				break;
 			}
-		} catch (ObjetoNaoEncontradoException e) {
-			System.out.println("Erro! Locatario não existe!");
-			System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
-			String Tentar;
-			Tentar=leitorP.nextLine();
-			if(Tentar.equals("Sim")||Tentar.equals("sim")){
-				ExcluiPessoaFisicaNome(Pessoas);
-			} else if(Tentar.equals("Não")||Tentar.equals("não")){
-				System.out.println("Retornando ao programa...");
-				return;
-			}
-		}
+			} 
+			try {
+				for (PessoaFisica PessoaF : Pessoas) {
+					if (! PessoaF.getNome().equals(locatarioProcurado) && Auxiliar==0) {
+						throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+					}	
+				} 
+				}catch (ObjetoNaoEncontradoException e) {
+				System.out.println(e.getMessage());
+				System.out.println("Erro! Pessoa nao encontrado!");
+				System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
+				String Tentar;
+				Tentar=leitorP.nextLine();
+				if(Tentar.equals("Sim")||Tentar.equals("sim")){
+					ExcluiPessoaFisicaNome(Pessoas);
+				} else if(Tentar.equals("Não")||Tentar.equals("não")){
+					System.out.println("Retornando ao programa...");
+					return;
+				}
+				}
 	}
 	public static void ExcluiPessoaJuridicaNome(ArrayList<PessoaJuridica> PessoasJ) {
 		System.out.println("Digite o nome do locatario a ser removido: ");
 		String locatarioJProcurado;
 		locatarioJProcurado = leitorP.nextLine();
+		int Auxiliar=1;
 		
-		try {
 			for (PessoaJuridica PessoaJ : PessoasJ) {
 				if (PessoaJ.getNomeSocial().equalsIgnoreCase(locatarioJProcurado)) {
 					System.out.println("Locatario Encontrado: " + locatarioJProcurado);
@@ -81,22 +87,28 @@ public class ExcluirLocatario  {
 						System.out.println("Retornando ao programa...");
 						return;
 					}
+					Auxiliar=1;
 					break;
-				} else {
-					throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
-				}
+				} 
 			}
-		} catch (ObjetoNaoEncontradoException e) {
-			System.out.println("Erro! Locatario não existe!");
-			System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
-			String Tentar;
-			Tentar=leitorP.nextLine();
-			if(Tentar.equals("Sim")||Tentar.equals("sim")){
-				ExcluiPessoaJuridicaNome(PessoasJ);
-			} else if(Tentar.equals("Não")||Tentar.equals("não")){
-				System.out.println("Retornando ao programa...");
-				return;
-			}
-			}
+				try {
+					for (PessoaJuridica PessoaJ : PessoasJ) {
+						if (! PessoaJ.getNomeSocial().equals(locatarioJProcurado) && Auxiliar==0) {
+							throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+						}	
+					} 
+					}catch (ObjetoNaoEncontradoException e) {
+					System.out.println(e.getMessage());
+					System.out.println("Erro! Pessoa nao encontrado!");
+					System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
+					String Tentar;
+					Tentar=leitorP.nextLine();
+					if(Tentar.equals("Sim")||Tentar.equals("sim")){
+						ExcluiPessoaJuridicaNome(PessoasJ);
+					} else if(Tentar.equals("Não")||Tentar.equals("não")){
+						System.out.println("Retornando ao programa...");
+						return;
+					}
+					}
 	}
 }

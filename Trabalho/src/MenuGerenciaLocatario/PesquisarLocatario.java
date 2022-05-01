@@ -7,7 +7,15 @@ import Excecoes.ObjetoNaoEncontradoException;
 import gerenciaLocatarios.PessoaFisica;
 import gerenciaLocatarios.PessoaJuridica;
 
+
+
 public class PesquisarLocatario {
+	
+	private static void clearBuffer(Scanner scanner) {
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+        }
+    }
 	
 	public static Scanner leitor = new Scanner(System.in);
 	
@@ -48,9 +56,9 @@ public class PesquisarLocatario {
 		System.out.println("Digite o nome:");
 		String NomePesquisado = leitor.nextLine();
 		System.out.println("Nome Pesquisado: " + NomePesquisado);
+		int Auxiliar=0;
 
 		// Procurando Locatario:
-		try {
 			for (PessoaFisica PessoaF : Pessoas) {
 				if (PessoaF.getNome().contentEquals(NomePesquisado)) {
 					System.out.println("Locatario Encontrado");
@@ -59,51 +67,59 @@ public class PesquisarLocatario {
 					System.out.println("CPF: " + PessoaF.getCpf());
 					System.out.println("Email: " + PessoaF.getEmail());
 					System.out.println("Celular: " + PessoaF.getCelular());
-					
-				}else {
-					throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+					Auxiliar=1;
 				}
 			}
-		} catch (ObjetoNaoEncontradoException e) {
-			System.out.println("Erro! Pessoa nao encontrado!");
-			System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
-			String Tentar;
-			Tentar=leitor.nextLine();
-			if(Tentar.equals("Sim")||Tentar.equals("sim")){
-				PesquisaFisicaPessoaNome(Pessoas);
-			} else if(Tentar.equals("Não")||Tentar.equals("não")){
-				System.out.println("Retornando ao programa...");
-				return;
+			try {
+				for (PessoaFisica PessoaF : Pessoas) {
+						if (! PessoaF.getCpf().equals(NomePesquisado) && Auxiliar==0) {
+								throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+						}	
+				} 
+				}catch (ObjetoNaoEncontradoException e) {
+				System.out.println(e.getMessage());
+				System.out.println("Erro! Pessoa nao encontrado!");
+				System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
+				String Tentar;
+				Tentar=leitor.nextLine();
+				if(Tentar.equals("Sim")||Tentar.equals("sim")){
+					PesquisaFisicaPessoaNome(Pessoas);
+				} else if(Tentar.equals("Não")||Tentar.equals("não")){
+					System.out.println("Retornando ao programa...");
+					return;
+				}
 			}
-		}
-		
-	} 
+	}
+			
 	
 	public static void PesquisaFisicaPessoaCPF(ArrayList<PessoaFisica> Pessoas) {
 		
 		
 		System.out.println("Digite o CPF:");
 		String CPFPesquisado = leitor.nextLine();
-		System.out.println("CPF Pesquisado: " + CPFPesquisado);
+		int Auxiliar=0;
 
 		// Procurando Locatario:
-		try {
 			for (PessoaFisica PessoaF : Pessoas) {
-				if (PessoaF.getCpf().contentEquals(CPFPesquisado)) {
+				if (PessoaF.getCpf().equals(CPFPesquisado)) {
 					System.out.println("Locatario Encontrado!");
 					System.out.println("Dados:");
 					System.out.println("Nome: " + PessoaF.getNome());
 					System.out.println("CPF: " + PessoaF.getCpf());
 					System.out.println("Email: " + PessoaF.getEmail());
 					System.out.println("Celular: " + PessoaF.getCelular());
-					
-				}
-				else {
-					throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
-				}
+					Auxiliar=1;
 			}
-		} 
-		catch (ObjetoNaoEncontradoException e) {
+			}
+			try {
+				for (PessoaFisica PessoaF : Pessoas) {
+					if (! PessoaF.getCpf().equals(CPFPesquisado) && Auxiliar==0) {
+						throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+					}
+			
+					} 
+			}catch (ObjetoNaoEncontradoException e) {
+			System.out.println(e.getMessage());
 			System.out.println("Erro! Pessoa nao encontrado!");
 			System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
 			String Tentar;
@@ -124,9 +140,9 @@ public class PesquisarLocatario {
 		System.out.println("Digite o Email:");
 		String EmailPesquisado = leitor.nextLine();
 		System.out.println("Email Pesquisado: " + EmailPesquisado);
+		int Auxiliar=0;
 
 		// Procurando Locatario:
-		try {
 			for (PessoaFisica PessoaF : Pessoas) {
 				if (PessoaF.getEmail().contentEquals(EmailPesquisado)) {
 					System.out.println("Locatario Encontrado!");
@@ -135,25 +151,31 @@ public class PesquisarLocatario {
 					System.out.println("CPF: " + PessoaF.getCpf());
 					System.out.println("Email: " + PessoaF.getEmail());
 					System.out.println("Celular: " + PessoaF.getCelular());
+					Auxiliar=1;
 					
-				}else {
-					throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
 				}
-			} 
-		}catch (ObjetoNaoEncontradoException e) {
-			System.out.println("Erro! Pessoa nao encontrado!");
-			System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
-			String Tentar;
-			Tentar=leitor.nextLine();
-			if(Tentar.equals("Sim")||Tentar.equals("sim")){
-				PesquisaFisicaPessoaCPF(Pessoas);
-			} else if(Tentar.equals("Não")||Tentar.equals("não")){
-				System.out.println("Retornando ao programa...");
-				return;
-		}
-		}
+			}
+			try {
+				for (PessoaFisica PessoaF : Pessoas) {
+					if (! PessoaF.getCpf().equals(EmailPesquisado) && Auxiliar==0) {
+						throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+					}	
+				} 
+				}catch (ObjetoNaoEncontradoException e) {
+				System.out.println(e.getMessage());
+				System.out.println("Erro! Pessoa nao encontrado!");
+				System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
+				String Tentar;
+				Tentar=leitor.nextLine();
+				if(Tentar.equals("Sim")||Tentar.equals("sim")){
+					PesquisaFisicaPessoaCPF(Pessoas);
+				} else if(Tentar.equals("Não")||Tentar.equals("não")){
+					System.out.println("Retornando ao programa...");
+					return;
+				}
+				}
+	}
 		
-	} 
 	
 	public static void PesquisaPessoaJuridicaNome(ArrayList<PessoaJuridica> PessoasJ) {
 		
@@ -161,23 +183,70 @@ public class PesquisarLocatario {
 		System.out.println("Digite o nome social da empresa:");
 		String NomePesquisadoJ = leitor.nextLine();
 		System.out.println("Nome Pesquisa: " + NomePesquisadoJ);
+		int Auxiliar=1;
 
 		// Procurando Locatario:
+		for (PessoaJuridica PessoaJ : PessoasJ) {
+			if (PessoaJ.getNomeSocial().equalsIgnoreCase(NomePesquisadoJ)) {
+				System.out.println("Locatario Encontrada!");
+				System.out.println("Dados:");
+				System.out.println("Nome Social da Empresa: " + PessoaJ.getNomeSocial());
+				System.out.println("Email: " + PessoaJ.getEmail());
+				System.out.println("CNPJ: "+PessoaJ.getCnpj());
+				System.out.println("Celular: " + PessoaJ.getCelular());
+				Auxiliar=1;
+			}
+		}
+			try {
+				for (PessoaJuridica PessoaJ : PessoasJ) {
+					if (! PessoaJ.getNomeSocial().equals(NomePesquisadoJ) && Auxiliar==0) {
+						throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+					}	
+				} 
+				}catch (ObjetoNaoEncontradoException e) {
+				System.out.println(e.getMessage());
+				System.out.println("Erro! Pessoa nao encontrado!");
+				System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
+				String Tentar;
+				Tentar=leitor.nextLine();
+				if(Tentar.equals("Sim")||Tentar.equals("sim")){
+					PesquisaPessoaJuridicaNome(PessoasJ);
+				} else if(Tentar.equals("Não")||Tentar.equals("não")){
+					System.out.println("Retornando ao programa...");
+					return;
+				}
+				}
+	} 
+	
+
+	public static void PesquisaPessoaJuridicaCNPJ(ArrayList<PessoaJuridica> PessoasJ) {
+	
+	
+		System.out.println("Digite o CNPJ da Empresa:");
+		String CNPJPesquisado = leitor.nextLine();
+		System.out.println("Nome Pesquisa: " + CNPJPesquisado);
+		int Auxiliar=1;
+	
+		// Procurando Locatario
+		for (PessoaJuridica PessoaJ : PessoasJ) {
+			if (PessoaJ.getCnpj().contentEquals(CNPJPesquisado)) {
+				System.out.println("Pessoa Encontrada!");
+				System.out.println("Dados:");
+				System.out.println("Nome Social da Empresa: " + PessoaJ.getNomeSocial());
+				System.out.println("CNPJ: "+PessoaJ.getCnpj());
+				System.out.println("Email: " + PessoaJ.getEmail());
+				System.out.println("Celular: " + PessoaJ.getCelular());
+				Auxiliar=1;
+			} 
+			}
 		try {
 			for (PessoaJuridica PessoaJ : PessoasJ) {
-				if (PessoaJ.getNomeSocial().equalsIgnoreCase(NomePesquisadoJ)) {
-					System.out.println("Locatario Encontrada!");
-					System.out.println("Dados:");
-					System.out.println("Nome Social da Empresa: " + PessoaJ.getNomeSocial());
-					System.out.println("Email: " + PessoaJ.getEmail());
-					System.out.println("CNPJ: "+PessoaJ.getCnpj());
-					System.out.println("Celular: " + PessoaJ.getCelular());
-				} else {
+				if (! PessoaJ.getNomeSocial().equals(CNPJPesquisado) && Auxiliar==0) {
 					throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
-				}
-			}
-		} 
-		catch (ObjetoNaoEncontradoException e) {
+				}	
+			} 
+			}catch (ObjetoNaoEncontradoException e) {
+			System.out.println(e.getMessage());
 			System.out.println("Erro! Pessoa nao encontrado!");
 			System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
 			String Tentar;
@@ -188,44 +257,7 @@ public class PesquisarLocatario {
 				System.out.println("Retornando ao programa...");
 				return;
 			}
-		}	
-	} 
-	
-
-	public static void PesquisaPessoaJuridicaCNPJ(ArrayList<PessoaJuridica> PessoasJ) {
-	
-	
-		System.out.println("Digite o CNPJ da Empresa:");
-		String CNPJPesquisado = leitor.nextLine();
-		System.out.println("Nome Pesquisa: " + CNPJPesquisado);
-	
-		// Procurando Locatario
-		try {
-			for (PessoaJuridica PessoaJ : PessoasJ) {
-				if (PessoaJ.getCnpj().contentEquals(CNPJPesquisado)) {
-					System.out.println("Pessoa Encontrada!");
-					System.out.println("Dados:");
-					System.out.println("Nome Social da Empresa: " + PessoaJ.getNomeSocial());
-					System.out.println("CNPJ: "+PessoaJ.getCnpj());
-					System.out.println("Email: " + PessoaJ.getEmail());
-					System.out.println("Celular: " + PessoaJ.getCelular());
-				} else {
-			throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
-				}
 			}
-		} 	
-		catch (ObjetoNaoEncontradoException e) {
-		System.out.println("Erro! Pessoa nao encontrado!");
-		System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
-		String Tentar;
-		Tentar=leitor.nextLine();
-		if(Tentar.equals("Sim")||Tentar.equals("sim")){
-			PesquisaPessoaJuridicaNome(PessoasJ);
-		} else if(Tentar.equals("Não")||Tentar.equals("não")){
-			System.out.println("Retornando ao programa...");
-			return;
-			}
-		}
 	}
 }
 

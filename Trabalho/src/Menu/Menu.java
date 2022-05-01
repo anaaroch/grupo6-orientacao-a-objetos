@@ -5,33 +5,34 @@ import java.util.Scanner;
 import Excecoes.ObjetoNaoEncontradoException;
 import MenuGerenciaFrota.MenuGerenciaFrota;
 import MenuGerenciaLocatario.MenuGerenciaLocatari;
+import MenuReserva.MenuGerenciaReserva;
 
 
 public class Menu {
 	
 	// Criando o leitor que vai ser usado em toda a classe.
-	public static Scanner leitor = new Scanner(System.in);
+	public static Scanner scan = new Scanner(System.in);
 	
 	public static void GerenciaLoc() throws ObjetoNaoEncontradoException {
-		
-		MenuGerenciaLocatari GerenciaLocatario = new MenuGerenciaLocatari();
+		MenuGerenciaLocatari GerenciaLocatario=new MenuGerenciaLocatari();
 		GerenciaLocatario.MenuLocatario();
 		
 		int escolhaL;
-		escolhaL = leitor.nextInt();
+		
+		escolhaL = scan.nextInt();
 		
 		switch(escolhaL) {
 		case 1:
-			GerenciaLocatario.cadastrarlocatario();;
+			MenuGerenciaLocatari.cadastrarlocatario();;
 			break;
 		case 2:
-			GerenciaLocatario.buscarlocatario();
+			MenuGerenciaLocatari.AlterarLocatario();
 			break;
 		case 3:
-			GerenciaLocatario.pesquisarlocatario();
+			MenuGerenciaLocatari.pesquisarlocatario();
 			break;
 		case 4:
-			GerenciaLocatario.excluirlocatario();
+			MenuGerenciaLocatari.excluirlocatario();
 			break;
 		default:
 			System.out.println("Escolha inválida. Tente novamente!!");
@@ -39,12 +40,12 @@ public class Menu {
 	}
 	}
 	
-	public static void GerenciaFrota() {
+	public static void GerenciaFrota() throws ObjetoNaoEncontradoException {
 		
 		MenuGerenciaFrota.MenuFrotaPrincipal();
 		
 		int escolhaF;
-		escolhaF = leitor.nextInt();
+		escolhaF = scan.nextInt();
 		
 		switch(escolhaF) {
 		case 1:
@@ -57,10 +58,11 @@ public class Menu {
 			MenuGerenciaFrota.AtualizaDados();
 			break;
 		case 4:
-			MenuGerenciaFrota.RemoveVeiculo();
+			MenuGerenciaFrota.RemoveVeiculo();	
 			break;
+			
 		default:
-			System.out.println("Escolha inválida!");
+			System.out.println("Escolha inválida. Tente novamente!!");
 		}
 		
 	}
@@ -72,7 +74,7 @@ public class Menu {
 		
 		int escolhaR;
 		
-		Scanner ler = new Scanner(System.in);
+		Scanner ler=new Scanner(System.in);
 		
 		escolhaR=ler.nextInt();
 		
@@ -98,24 +100,23 @@ public class Menu {
 		
 		System.out.println("Deseja realmente sair do programa? Digite Sim/sim ou Não/não");
 		Saindo=sair.next();
-		String Sair;
-		Sair=Saindo;
-		Saindo=sair.nextLine();
-		if(Sair.equals("Sim")||Sair.equals("sim")){
+		if(Saindo.equals("Sim")||Saindo.equals("sim")){
 			System.out.println("Saindo do programa...");
 			System.exit(0);
-		} else if(Sair.equals("Não")||Sair.equals("não")){
+		} else if(Saindo.equals("Não")||Saindo.equals("não")){
 			System.out.println("Retornando ao programa...");
 			return;
 		}
 	}
 	
 	public static void main(String [] args) throws ObjetoNaoEncontradoException {
-
+		
+		Scanner leitor = new Scanner(System.in);
+		
 		boolean continuar = true;
 		
 		do {
-			// Menu principal.
+			
 			System.out.println("------------------- Menu Principal ------------------------\n"+
 						   "                 1 - Gerenciar Locatários                    \n"+
 						   "                 2 - Gerenciar Frota                         \n"+
@@ -123,16 +124,14 @@ public class Menu {
 						   "                 4 - Sair do Programa                        \n"+
 						   "                                                             \n"+
 						   "                 Escolha uma dessas opções:                  \n");
-			
-			// Esolhndo menu secundario.
 			int escolha = 0;
-			escolha = leitor.nextInt();
+			escolha = scan.nextInt();
 			
 			switch(escolha) {
 			case 1:
 				GerenciaLoc();
 				break;
-			case 2:
+			case 2:	
 				GerenciaFrota();
 				break;
 			case 3:
@@ -142,14 +141,15 @@ public class Menu {
 				Sair();	
 				break;
 			default:
-				System.out.println("Escolha inválida!");
-			}
-			
-			System.out.println("\n\nDeseja continuar? " + "(Digite (1) para sim ou (0) para não)");
-			escolha = leitor.nextInt();
-			if (escolha == 0) {
+				System.out.println("Escolha inválida. Tente novamente!!");
+			}	
+			String escolhaE;
+			System.out.println("Deseja continuar?");
+			System.out.println("(Digite 'Sim' parar continuar ou 'Não' para sair do programa)");
+			escolhaE = leitor.nextLine();
+			if (escolhaE.equals("Não")||escolhaE.equals("não")) {
 				continuar = false;
-			} else if (escolha == 1) {
+			} else if (escolhaE.equals("Sim")||escolhaE.equals("sim")) {
 				continuar = true;
 			}
 

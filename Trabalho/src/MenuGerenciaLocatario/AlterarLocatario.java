@@ -24,8 +24,8 @@ public class AlterarLocatario {
 	
 		System.out.println("Digite o nome do Locatario ao ser alterado:");
 		String NomeAlterado = leitor.nextLine();
+		int Auxiliar=1;
 		System.out.println("Dados do ");
-		try {
 			for (PessoaFisica PessoaF : Pessoas) {
 				if (PessoaF.getNome().contentEquals(NomeAlterado))
 					System.out.println("Deseja realmente alterar os dados do Locatario "+PessoaF.getNome()+"? Digite Sim/sim ou Não/não");
@@ -45,30 +45,36 @@ public class AlterarLocatario {
 					} else if(Alterar.equals("Não")||Alterar.equals("não")){
 				System.out.println("Retornando ao programa...");
 				return;
-					}else {
+					}
+				Auxiliar=1;	
+			}
+			try{
+				for (PessoaFisica PessoaF : Pessoas) {
+					if (! PessoaF.getNome().equals(NomeAlterado) && Auxiliar==0) {
 						throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+							}	
+				} 
+				}catch (ObjetoNaoEncontradoException e) {
+					System.out.println(e.getMessage());
+					System.out.println("Erro! Pessoa nao encontrado!");
+					System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
+					String Tentar;
+					Tentar=leitor.nextLine();
+					if(Tentar.equals("Sim")||Tentar.equals("sim")){
+						AlterarPessoaFisica(Pessoas);
+					} else if(Tentar.equals("Não")||Tentar.equals("não")){
+						System.out.println("Retornando ao programa...");
+						return;
 					}
 				}
-		} catch (ObjetoNaoEncontradoException e) {
-			System.out.println("Erro! Pessoa nao encontrado!");
-			System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
-			String Tentar;
-			Tentar=leitor.nextLine();
-			if(Tentar.equals("Sim")||Tentar.equals("sim")){
-				AlterarPessoaFisica(Pessoas);
-			} else if(Tentar.equals("Não")||Tentar.equals("não")){
-				System.out.println("Retornando ao programa...");
-				return;
-				}
-			}
 	}
 	
 	public static void AlterarPessoaJuridica(ArrayList<PessoaJuridica> PessoasJ) {
 		
 		System.out.println("Digite o nome do Locatario ao ser alterado:");
 		String NomeAlterado = leitor.nextLine();
+		int Auxiliar=1;
 		System.out.println("Dados do ");
-		try {
 			for (PessoaJuridica PessoaJ : PessoasJ) {
 				if (PessoaJ.getNomeSocial().contentEquals(NomeAlterado))
 					System.out.println("Deseja realmente alterar os dados do Locatario "+PessoaJ.getNomeSocial()+"? Digite Sim/sim ou Não/não");
@@ -86,22 +92,28 @@ public class AlterarLocatario {
 					} else if(Alterar.equals("Não")||Alterar.equals("não")){
 				System.out.println("Retornando ao programa...");
 				return;
-					}else {
+					}
+					Auxiliar=1;
+			}
+			try {
+				for (PessoaJuridica PessoaJ : PessoasJ) {
+					if (! PessoaJ.getNomeSocial().equals(NomeAlterado) && Auxiliar==0) {
 						throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+							}	
+				} 
+				}catch (ObjetoNaoEncontradoException e) {
+					System.out.println(e.getMessage());
+					System.out.println("Erro! Pessoa nao encontrado!");
+					System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
+					String Tentar;
+					Tentar=leitor.nextLine();
+					if(Tentar.equals("Sim")||Tentar.equals("sim")){
+						AlterarPessoaJuridica(PessoasJ);
+					} else if(Tentar.equals("Não")||Tentar.equals("não")){
+						System.out.println("Retornando ao programa...");
+						return;
 					}
 				}
-		}catch (ObjetoNaoEncontradoException e) {
-			System.out.println("Erro! Pessoa nao encontrado!");
-			System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
-			String Tentar;
-			Tentar=leitor.nextLine();
-			if(Tentar.equals("Sim")||Tentar.equals("sim")){
-				AlterarPessoaJuridica(PessoasJ);
-			} else if(Tentar.equals("Não")||Tentar.equals("não")){
-				System.out.println("Retornando ao programa...");
-				return;
-				}
-			}
 	}
 }
 	

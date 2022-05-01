@@ -14,6 +14,12 @@ public class CadastraLocatario {
 	// Criando o leitor que vai ser usado em toda a classe.
 	public static Scanner leitorP = new Scanner(System.in);
 	
+	private static void clearBuffer(Scanner scanner) {
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+        }
+    }
+	
 	public static void CadastrarPessoa() {
 		
 		
@@ -27,7 +33,8 @@ public class CadastraLocatario {
 	public static PessoaFisica cadastrarPessoaFisica() {
 		Endereco enderecoF=new Endereco(null, null, null, null, null, null, null);
 		PessoaFisica PessoaF= new PessoaFisica(null, null, null, null, null, null);
-
+		
+		
 		System.out.println("Cadastrando Locatário...");
 		
 		System.out.println("Coloque o seu Nome Completo:");
@@ -55,9 +62,9 @@ public class CadastraLocatario {
 			System.out.println("Deseja tentar novamente? Digite Sim/sim ou Não/não");
 			String Tentar;
 			Tentar=leitorP.nextLine();
-			if(Tentar.equals("Sim")||Tentar.equals("sim")){
+			if((Tentar.equals("Sim"))||(Tentar.equals("sim"))){
 				cadastrarPessoaFisica();
-			} else if(Tentar.equals("Não")||Tentar.equals("não")){
+			} else if((Tentar.equals("Não"))||(Tentar.equals("não"))){
 				System.out.println("Retornando ao programa...");
 				try {
 					Menu.main(null);
@@ -105,11 +112,13 @@ public class CadastraLocatario {
 		System.out.println("Endereço: "+enderecoF.getLogadouro()+" "+enderecoF.getNumero()+" "+enderecoF.getComplemento()+" "+enderecoF.getBairro()
 										+" "+enderecoF.getCidade()+" "+enderecoF.getEstado()+" "+enderecoF.getCep());
 		System.out.println("- - - - - - - - - - - - - - - ");
+		
 		return PessoaF;	
 		
 		
 	   
 	}
+	
 	
 	private static boolean checaCampoBranco(String string) {
 		
