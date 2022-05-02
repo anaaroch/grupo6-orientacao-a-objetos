@@ -51,7 +51,7 @@ public class MenuGerenciaReserva {
 			System.out.println("Escolha inválida. Tente novamente!!");	
 		}
 		
-		Reserva NovaRes = new Reserva(null, null, null, null, null, null, null, null);
+		Reserva NovaRes = new Reserva(null, null, 0, 0, null, null, null, null);
 		
 		System.out.println("Criando Reserva...");
 		
