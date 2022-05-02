@@ -32,9 +32,50 @@ public class PesquisarVeículos {
 		System.out.println("                 Escolha uma dessas opções:                     ");
 	}
 	
+	public static Veiculo RetornaVeiculo(ArrayList<Veiculo> veiculos) {
+		
+		// O método retorna um veículo com um determinado Renavam.
+		
+		// Objeto auxiliar.
+		Veiculo veiculoAuxiliar = null;
+		
+		System.out.println("Método Retorna Veículo");
+	
+		// Pegando o Renavam.
+		System.out.println("Digite o Renavam do Veículo:");
+		int RenavamPesquisado = leitor.nextInt();
+		System.out.println("Renavam pesquisado: " + RenavamPesquisado + "\n");
+
+		boolean veiculoEncontrado = false;
+		
+		// Procurando o Veiculo.
+		try {
+			for (Veiculo v : veiculos) {
+				if (v.getRenavam()==RenavamPesquisado) {
+					veiculoAuxiliar = v; // Guardando o veículo no objeto auxiliar.
+					veiculoEncontrado = true;
+					break;	
+				}
+			}
+			
+			if (veiculoEncontrado == false) {
+				// Lançando a exceção.
+				throw new ObjetoNaoEncontradoException("Erro! Veículo não encontrado!");
+			}
+	
+		} catch (ObjetoNaoEncontradoException e) { // Capturando a exceção.
+			System.out.println(e.getMessage());
+			return null;
+			//e.printStackTrace();
+		}
+		
+		return veiculoAuxiliar;
+		
+	}
+	
 	public static void PesquisaVeiculoRenavam(ArrayList<Veiculo> veiculos) {
 		
-		System.out.println("Método de Pesquisa pelo Renavam..");
+		System.out.println("Método de Pesquisa pelo Renavam");
 		
 		// Pegando o Renavam.
 		System.out.println("Digite o Renavam do Veículo:");
