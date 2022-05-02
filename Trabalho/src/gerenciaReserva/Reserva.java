@@ -3,18 +3,28 @@ package gerenciaReserva;
 public class Reserva {
 	
 	private int id,
-				diarias,
-				dataInicio,
-				dataFim;
+				diarias;
+	
+	private String nomePF,
+	               dataInicio,
+	               dataFim,
+	               horaInicio,
+	               horaFim,
+				   nomePJ;
+	
+	// Pendente: adicionar os valores do registro de veiculos da reserva.
 	
 	private ValorTotal total;
 	
-	public Reserva(int id, int diarias, int dataInicio, int dataFim, ValorTotal total) {
+	public Reserva(String nomePF, String nomePJ, int id, int diarias, String dataInicio, String dataFim, String horaInicio, String horaFim) {
+		this.nomePF = nomePF;
+		this.nomePJ = nomePJ;
 		this.id = id;
 		this.diarias = diarias;
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
-		this.setTotal(total);
+		this.horaInicio = horaInicio;
+		this.horaFim = horaFim;
 	}
 
 	public int getId() {
@@ -33,19 +43,27 @@ public class Reserva {
 		this.diarias = diarias;
 	}
 
-	public int getDataInicio() {
-		return dataInicio;
+	public String getPFisica() {
+		return nomePF;
 	}
 
-	public void setDataInicio(int dataInicio) {
-		this.dataInicio = dataInicio;
+	public void setPFisica(String nomePF) {
+		this.nomePF = nomePF;
 	}
 
-	public int getDataFim() {
+	public String getPJuri() {
+		return nomePJ;
+	}
+
+	public void setPJuri(String nomePJ) {
+		this.nomePJ = nomePJ;
+	}
+	
+	public String getDataFim() {
 		return dataFim;
 	}
 
-	public void setDataFim(int dataFim) {
+	public void setDataFim(String dataFim) {
 		this.dataFim = dataFim;
 	}
 
@@ -56,6 +74,21 @@ public class Reserva {
 	public void setTotal(ValorTotal total) {
 		this.total = total;
 	}
+	
+	public void setHoraInicio(String horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+	
+	public void setHoraFim(String horaFim) {
+		this.horaFim = horaFim;
+	}
+	
+	public String getDataInicio() {
+		return dataInicio;
+	}
 
+	public void setDataInicio(String dataInicio) {
+		this.dataInicio = dataInicio;
+	}
 	
 }
