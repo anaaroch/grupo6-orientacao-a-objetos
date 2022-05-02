@@ -31,13 +31,13 @@ public class MenuGerenciaFrota {
 		// Guardando dados basicos do veículo.
 		Veiculo dadosBasicos = CadastrarVeículos.cadastro();
 		
-		if (dadosBasicos == null) {
+		if (dadosBasicos == null) { // Terminado o método caso os dados voltem vazios.
 			System.out.println("Veículo não cadastrado!");
 			return;
 		}
 		else {
 			// Menu de escolha do tipo de veículo.
-			CadastrarVeículos.CadastrarVeiculo();
+			CadastrarVeículos.MenuCadastrarVeiculo();
 			// Escolhendo o tipo de veículo.
 			int escolha;
 			escolha = leitor.nextInt();
@@ -65,14 +65,14 @@ public class MenuGerenciaFrota {
 	
 	public static void PesquisarVeiculos() {
 		
-		//Chamando o menu
+		// Chamando o menu
 		PesquisarVeículos.PesquisaVeiculo();
 		
-		// Chamando o metodo do tipo de pesquisa.
+		// Chamando o método do tipo de pesquisa.
 		int escolhaPV;
 		escolhaPV = leitor.nextInt();
 		
-		// Chamando o metodo de acordo com a escolha.
+		// Chamando o método de acordo com a escolha.
 		switch(escolhaPV) {
 		case 1:
 			PesquisarVeículos.PesquisaVeiculoRenavam(veiculos);
@@ -88,11 +88,12 @@ public class MenuGerenciaFrota {
 	
 	public static void AtualizaDados() {
 				
-		System.out.println("Bem vindo ao Metodo Atualiza Dados");
+		System.out.println("Bem vindo ao Método Atualiza Dados.");
 		MetodoAtualizaDados.AtualizaBasico(veiculos);
-		
+
 		/*
-		Verificar com o professor se precisa atualizar todos os dados.
+		Será implementado apenas o método para atualizar os dados básicos.
+		
 		MetodoAtualizaDados.MenuAtualizaDadosFrota();
 		
 		int escolha;
@@ -102,7 +103,7 @@ public class MenuGerenciaFrota {
 			MetodoAtualizaDados.AtualizaBasico(veiculos);
 			break;
 		case 2:	
-			//MetodoAtualizaDados.AtualizaPasseio(veiculos);
+			MetodoAtualizaDados.AtualizaPasseio(veiculos);
 			break;
 		case 3:
 			//MetodoAtualizaDados.AtualizaUtilitario(veiculos);
@@ -117,8 +118,8 @@ public class MenuGerenciaFrota {
 
 	public static void RemoveVeiculo() {
 
-		System.out.println("\n\nMetodo Remover veiculo");
-		System.out.println("Digite o renavam do veiculo a ser removido: ");
+		System.out.println("\n\nMétodo Remove Veículo!");
+		System.out.println("Digite o renavam do veículo a ser removido:");
 		
 		Veiculo veiculoAuxiliar = null;
 		
@@ -133,14 +134,14 @@ public class MenuGerenciaFrota {
 				}
 			}
 				
-			// Verificando se o objeto esta vazio e lançando a exception caso sim.
+			// Verificando se o objeto está vazio e lançando a exception caso sim.
 			if (veiculoAuxiliar == null) {
 				throw new ObjetoNaoEncontradoException("Veículo não encontrado!");
 			}
 	
 			else {
 				veiculos.remove(veiculoAuxiliar);
-				System.out.println("Veículo removido com sucesso.");
+				System.out.println("Veículo removido com sucesso!");
 			}
 		
 		} catch (ObjetoNaoEncontradoException e) {

@@ -40,7 +40,7 @@ public class Menu {
 	}
 	}
 	
-	public static void GerenciaFrota() throws ObjetoNaoEncontradoException {
+	public static void GerenciaFrota() {
 		
 		MenuGerenciaFrota.MenuFrotaPrincipal();
 		
@@ -144,6 +144,7 @@ public class Menu {
 				System.out.println("Escolha inválida. Tente novamente!!");
 			}	
 			String escolhaE;
+			System.out.println("");
 			System.out.println("Deseja continuar?");
 			System.out.println("(Digite 'Sim' parar continuar ou 'Não' para sair do programa)");
 			escolhaE = leitor.nextLine();

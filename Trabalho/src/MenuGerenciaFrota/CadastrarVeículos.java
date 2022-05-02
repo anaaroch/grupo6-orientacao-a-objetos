@@ -19,27 +19,33 @@ public class CadastrarVeículos {
 	
 	public static Veiculo cadastro() {
 
+		// Criando os objetos auxiliares.
+		Veiculo veiculoAuxiliar = new Veiculo(null, null, 0, 0, 0, 0, null);
+		Diaria diariaAuxiliar = new Diaria(null, null, null, null);
+		
+		Scanner leitorC = new Scanner(System.in);
+		
 		// Mensagem inicial.
 		System.out.println("			Atencao!!!			");
 		System.out.println("Para cadastrar um veiculo os dados" +
 						   " sobre a marca, o modelo e o renavam são obrigatórios!");
-		System.out.println("Os outros campos podem ser deixados em branco, caso queira.");
+		System.out.println("Os outros campos podem ser deixados em branco, caso queira.\n");
 		
 		// Obtendo os dados iniciais do veículo.
 		System.out.println("Digite a Marca do Veículo:");
-		String Marca = leitor.nextLine();
+		veiculoAuxiliar.setMarca(leitorC.nextLine());
 
 		System.out.println("Coloque o Modelo do Veículo:");
-		String Modelo = leitor.nextLine();
+		veiculoAuxiliar.setModelo(leitorC.nextLine());
 		
 		System.out.println("Coloque o Número do Renavam:");
-		int Renavam = leitor.nextInt();
+		veiculoAuxiliar.setRenavam(leitorC.nextInt());
 		
 		// Verificando se as Strings estão em branco.
-		boolean validaMarca = checaCampoBranco(Marca);
-		boolean validaModelo = checaCampoBranco(Modelo);
+		boolean validaMarca = checaCampoBranco(veiculoAuxiliar.getMarca());
+		boolean validaModelo = checaCampoBranco(veiculoAuxiliar.getModelo());
 		// Convertendo o Renavam para uma string e calculando seu tamanho.
-		int tamanhoRenavam = String.valueOf(Renavam).length();
+		int tamanhoRenavam = String.valueOf(veiculoAuxiliar.getRenavam()).length();
 		
 		// Verificando as condições para o lançamento da exceção "CampoEmBrancoException".
 		try {
@@ -48,45 +54,51 @@ public class CadastrarVeículos {
 			}
 		} catch (CampoEmBrancoException e) {
 			System.out.println(e.getMessage());
+		} catch (Exception e) {
+			System.out.println("Ocorreu um erro!");
+			e.printStackTrace();
 		}
+		
 		
 		if (validaMarca == true && validaModelo == true && tamanhoRenavam != 0) {
 			
 			System.out.println("Coloque o Ano de Fabricação:");
-			int AnoFab = leitor.nextInt();
+			veiculoAuxiliar.setAnoFabricacao(leitorC.nextInt()); 
 			
 			System.out.println("Coloque o Ano de Modelo:");
-			int AnoMod = leitor.nextInt();
+			veiculoAuxiliar.setAnoModelo(leitorC.nextInt());
 					
 			System.out.println("Coloque a capacidade do tanque: ");
-			int CapacidadedoTanque = leitor.nextInt();
+			veiculoAuxiliar.setCapacidadeTanque(leitorC.nextInt());
 			
 			System.out.println("Coloque o valor da diaria normal: ");
-			float DiariaNormal = leitor.nextFloat();
+			diariaAuxiliar.setDiariaNormal(leitorC.nextFloat());
 			
 			System.out.println("Coloque o valor da diaria reduzida: ");
-			float DiariaReduzida = leitor.nextFloat();
-			
+			diariaAuxiliar.setDiariaReduzida(leitorC.nextFloat());
+		
 			System.out.println("Coloque o valor da diaria empresarial: ");
-			float DiariaEmpresarial = leitor.nextFloat();
+			diariaAuxiliar.setDiariaEmpresarial(leitorC.nextFloat());
 			
 			System.out.println("Coloque o valor mensal da diaria:");
-			float ValorMensal = leitor.nextFloat();
+			diariaAuxiliar.setValorMensal(leitorC.nextFloat());
 			
-			Diaria diariaAuxiliar = new Diaria(DiariaNormal, DiariaReduzida, DiariaEmpresarial, ValorMensal);
+			// Guardando os valores da diária.
+			veiculoAuxiliar.setDiaria(diariaAuxiliar);
 			
 			// Mostrando os dados digitados
 			System.out.println("\n");
-			System.out.println("Dados cadastrados: ");
-			System.out.println("Marca: " + Marca);
-			System.out.println("Modelo: " + Modelo);
-			System.out.println("Ano de Fabricação: " + AnoFab);
-			System.out.println("Ano Modelo: " + AnoMod);
-			System.out.println("Renavam: " + Renavam);
-			System.out.println("Capacidade do Tanque: " + CapacidadedoTanque);
+			System.out.println("+---------------------------------------------------------+");
+			System.out.println(" Dados cadastrados:");
+			System.out.println("+---------------------------------------------------------+");
+			System.out.println("		Marca: " + veiculoAuxiliar.getMarca());
+			System.out.println("		Modelo: " + veiculoAuxiliar.getModelo());
+			System.out.println("		Ano de Fabricação: " + veiculoAuxiliar.getAnoFabricacao());
+			System.out.println("		Ano Modelo: " + veiculoAuxiliar.getAnoModelo());
+			System.out.println("		Renavam: " + veiculoAuxiliar.getRenavam());
+			System.out.println("		Capacidade do Tanque: " + veiculoAuxiliar.getCapacidadeTanque());
+			System.out.println("+---------------------------------------------------------+");
 			
-			Veiculo veiculoAuxiliar = new Veiculo(Marca, Modelo, AnoFab, AnoMod, 
-												  Renavam, CapacidadedoTanque, diariaAuxiliar);
 			return veiculoAuxiliar;
 		}
 		
@@ -109,7 +121,7 @@ public class CadastrarVeículos {
 
 	}
 
-	public static void CadastrarVeiculo() {
+	public static void MenuCadastrarVeiculo() {
 		System.out.println("-------------------- Cadastro de Veículos -----------------\n");
 		System.out.println("                 1 - Cadastrar Veículo de Passeio            ");
 		System.out.println("                 2 - Cadastrar Veículo Utilitário            ");
@@ -165,12 +177,14 @@ public class CadastrarVeículos {
 		}
 		
 		System.out.println("\n\n");
-		System.out.println("+------Dados cadastrados------+");
-		System.out.println("Categoria do Veículo: "+ CategoriaVeiculo);
-		System.out.println("Arcondicionado: "+ Ar);
-		System.out.println("Direção Hidráulica: "+ Direcao);
-		System.out.println("Câmbio Automático: "+ Cambio);
-		System.out.println("\n\n");
+		System.out.println("+--------------------------------------------+");
+		System.out.println(" Dados Cadastrados:");
+		System.out.println("+--------------------------------------------+");
+		System.out.println("	Categoria do Veículo: "+ CategoriaVeiculo);
+		System.out.println("	Arcondicionado: "+ Ar);
+		System.out.println("	Direção Hidráulica: "+ Direcao);
+		System.out.println("	Câmbio Automático: "+ Cambio);
+		System.out.println("+--------------------------------------------+\n");
 		
 		VeiculoDePasseio passeioAuxiliar = new VeiculoDePasseio(CategoriaVeiculo, Ar, Direcao, Cambio, 
 																dadosBasicos.getMarca(), dadosBasicos.getModelo(),
@@ -192,7 +206,7 @@ public class CadastrarVeículos {
 
 	    System.out.println("Cadastrando Utilitario");
 
-	    System.out.println("O veículo é do tipo Carga o Passageiro? (Digite Carga/carga ou Passageiro/passageiro)");		
+	    System.out.println("O veículo é do tipo Carga ou Passageiro? (Digite Carga/carga ou Passageiro/passageiro)");		
 		String EscolhaU = "";
 		EscolhaU = leitorU.nextLine();
 	    System.out.println("Qual é a capacidade de carga?");
@@ -241,13 +255,15 @@ public class CadastrarVeículos {
 				System.out.println("Opção inválida. Tente novamente!");
 			}
 			
-			
-			System.out.println("Dados cadastrados: ");
-			System.out.println("Categoria do Veículo: " + EscolhaU);
-			System.out.println("Capacidade de Carga: " + Carga);
-			System.out.println("Arcondicionado: " + Ar);
-			System.out.println("Direção Hidráulica: " + Direcao);
-			System.out.println("Câmbio Automático: " + TV);
+			System.out.println("+---------------------------------------------------------+");
+			System.out.println(" Dados cadastrados:");
+			System.out.println("+---------------------------------------------------------+");
+			System.out.println("	Categoria do Veículo: " + EscolhaU);
+			System.out.println("	Capacidade de Carga: " + Carga);
+			System.out.println("	Arcondicionado: " + Ar);
+			System.out.println("	Direção Hidráulica: " + Direcao);
+			System.out.println("	Câmbio Automático: " + TV);
+			System.out.println("+---------------------------------------------------------+");
 			
 			veiculoAuxiliar = new UtilitarioPassageiros(Ar, Direcao, TV, EscolhaU, Carga,
 																		dadosBasicos.getMarca(), dadosBasicos.getModelo(),
@@ -285,13 +301,15 @@ public class CadastrarVeículos {
 					System.out.println("Opção inválida!");
 				}
 				
-				System.out.println("\n\n");
-				System.out.println("Dados cadastrados: ");
-				System.out.println("Categoria do Veículo: " + EscolhaU);
-				System.out.println("Capacidade de Carga: " + Carga);
-				System.out.println("Arcondicionado: " + Tara);
-				System.out.println("Direção Hidráulica: " + Compartimento);
-				System.out.println("Câmbio Automático: " + Tipo);
+				System.out.println("+---------------------------------------------------------+");
+				System.out.println(" Dados cadastrados:");
+				System.out.println("+---------------------------------------------------------+");
+				System.out.println("	Categoria do Veículo: " + EscolhaU);
+				System.out.println("	Capacidade de Carga: " + Carga);
+				System.out.println("	Arcondicionado: " + Tara);
+				System.out.println("	Direção Hidráulica: " + Compartimento);
+				System.out.println("	Câmbio Automático: " + Tipo);
+				System.out.println("+---------------------------------------------------------+");
 				
 				veiculoAuxiliar = new UtilitarioCarga(Tipo, Tara, Compartimento,EscolhaU, Carga,
 																dadosBasicos.getMarca(), dadosBasicos.getModelo(),

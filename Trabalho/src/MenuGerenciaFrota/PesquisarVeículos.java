@@ -47,13 +47,16 @@ public class PesquisarVeículos {
 		try {
 			for (Veiculo v : veiculos) {
 				if (v.getRenavam()==RenavamPesquisado) {
-					System.out.println("\n\nVeículo encontrado!");
-					System.out.println("+--------------Dados--------------+");
-					System.out.println("  Marca: " + v.getMarca());
-					System.out.println("  Modelo: " + v.getModelo());
-					System.out.println("  Ano de Fabicação: " + v.getAnoFabricacao());
-					System.out.println("  Ano do Modelo: " + v.getAnoModelo());
-					System.out.println("+---------------------------------+");
+					System.out.println("\nVeículo encontrado!");
+					System.out.println("+-------------------------------------------+");
+					System.out.println(" Dados:");
+					System.out.println("+-------------------------------------------+");
+					System.out.println("	Marca: " + v.getMarca());
+					System.out.println("	Modelo: " + v.getModelo());
+					System.out.println("	Ano de Fabicação: " + v.getAnoFabricacao());
+					System.out.println("	Ano do Modelo: " + v.getAnoModelo());
+					System.out.println("+-------------------------------------------+");
+					System.out.println("\n");
 					veiculoEncontrado = true;
 				}
 			}
@@ -91,7 +94,7 @@ public class PesquisarVeículos {
 			PesquisaVeiculoCategoria(veiculos);
 			break;
 		default:
-			System.out.println("Escolha inválida. Tente novamente!!"); 
+			System.out.println("Escolha inválida!"); 
 		}
 		
 				
@@ -117,6 +120,7 @@ public class PesquisarVeículos {
 					System.out.println("Ano de Fabicacao: " + v.getAnoFabricacao());
 					System.out.println("Ano do Modelo: " + v.getAnoModelo());
 					System.out.println("Renavam: " + v.getRenavam());
+					System.out.println("\n");
 					// Mudando a variável “veiculoEncontrado” para true caso o veículo seja encontrado.
 					veiculoEncontrado = true;
 				}
@@ -151,6 +155,7 @@ public class PesquisarVeículos {
 					System.out.println("Ano de Fabicacao: " + v.getAnoFabricacao());
 					System.out.println("Ano do Modelo: " + v.getAnoModelo());
 					System.out.println("Renavam: " + v.getRenavam());
+					System.out.println("\n");
 					veiculoEncontrado = true;
 				}
 			}
@@ -183,6 +188,7 @@ public class PesquisarVeículos {
 					System.out.println("Ano de Fabicacao: " + v.getAnoFabricacao());
 					System.out.println("Ano do Modelo: " + v.getAnoModelo());
 					System.out.println("Renavam: " + v.getRenavam());
+					System.out.println("\n");
 					veiculoEncontrado = true;
 				}
 			}
