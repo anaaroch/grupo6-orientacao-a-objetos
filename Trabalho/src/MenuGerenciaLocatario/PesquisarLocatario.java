@@ -25,7 +25,7 @@ public class PesquisarLocatario {
 		System.out.println("                 1 - Pessoa Fisica                           ");
 		System.out.println("                 2 - Pessoa Juridica                         ");
 		System.out.println("                                                             ");
-		System.out.println("                 Escolha uma dessas opÁıes:                  ");
+		System.out.println("                 Escolha uma dessas op√ß√µes:                  ");
 			
 		}
 	
@@ -36,7 +36,7 @@ public class PesquisarLocatario {
 		System.out.println("                 2 - Pessoa pelo CPF                         ");
 		System.out.println("                 3 - Pessoa pelo Email                       ");
 		System.out.println("                                                             ");
-		System.out.println("                 Escolha uma dessas opÁıes:                  ");
+		System.out.println("                 Escolha uma dessas op√ß√µes:                  ");
 			
 		}
 	
@@ -46,11 +46,11 @@ public class PesquisarLocatario {
 		System.out.println("                 1 - Pesquisa pelo nome da empresa           ");
 		System.out.println("                 2 - Pessoa pelo CNPJ                        ");
 		System.out.println("                                                             ");
-		System.out.println("                 Escolha uma dessas opÁıes:                  ");
+		System.out.println("                 Escolha uma dessas op√ß√µes:                  ");
 			
 		}
 	
-	public static void PesquisaFisicaPessoaNome(ArrayList<PessoaFisica> Pessoas) {
+	public static String PesquisaFisicaPessoaNome(ArrayList<PessoaFisica> Pessoas) {
 		
 		
 		System.out.println("Digite o nome:");
@@ -68,8 +68,10 @@ public class PesquisarLocatario {
 					System.out.println("Email: " + PessoaF.getEmail());
 					System.out.println("Celular: " + PessoaF.getCelular());
 					Auxiliar=1;
+					return NomePesquisado;
 				}
 			}
+		
 			try {
 				for (PessoaFisica PessoaF : Pessoas) {
 						if (! PessoaF.getCpf().equals(NomePesquisado) && Auxiliar==0) {
@@ -79,16 +81,16 @@ public class PesquisarLocatario {
 				}catch (ObjetoNaoEncontradoException e) {
 				System.out.println(e.getMessage());
 				System.out.println("Erro! Pessoa nao encontrado!");
-				System.out.println("Deseja tentar novamente? Digite Sim/sim ou N„o/n„o");
+				System.out.println("Deseja tentar novamente? Digite Sim/sim ou N√£o/n√£o");
 				String Tentar;
 				Tentar=leitor.nextLine();
 				if(Tentar.equals("Sim")||Tentar.equals("sim")){
 					PesquisaFisicaPessoaNome(Pessoas);
-				} else if(Tentar.equals("N„o")||Tentar.equals("n„o")){
+				} else if(Tentar.equals("N√£o")||Tentar.equals("n√£o")){
 					System.out.println("Retornando ao programa...");
-					return;
+					return null;
 				}
-			}
+			}	
 	}
 			
 	
@@ -121,12 +123,12 @@ public class PesquisarLocatario {
 			}catch (ObjetoNaoEncontradoException e) {
 			System.out.println(e.getMessage());
 			System.out.println("Erro! Pessoa nao encontrado!");
-			System.out.println("Deseja tentar novamente? Digite Sim/sim ou N„o/n„o");
+			System.out.println("Deseja tentar novamente? Digite Sim/sim ou N√£o/n√£o");
 			String Tentar;
 			Tentar=leitor.nextLine();
 			if(Tentar.equals("Sim")||Tentar.equals("sim")){
 				PesquisaFisicaPessoaCPF(Pessoas);
-			} else if(Tentar.equals("N„o")||Tentar.equals("n„o")){
+			} else if(Tentar.equals("N√£o")||Tentar.equals("n√£o")){
 				System.out.println("Retornando ao programa...");
 				return;
 		}
@@ -164,12 +166,12 @@ public class PesquisarLocatario {
 				}catch (ObjetoNaoEncontradoException e) {
 				System.out.println(e.getMessage());
 				System.out.println("Erro! Pessoa nao encontrado!");
-				System.out.println("Deseja tentar novamente? Digite Sim/sim ou N„o/n„o");
+				System.out.println("Deseja tentar novamente? Digite Sim/sim ou N√£o/n√£o");
 				String Tentar;
 				Tentar=leitor.nextLine();
 				if(Tentar.equals("Sim")||Tentar.equals("sim")){
 					PesquisaFisicaPessoaCPF(Pessoas);
-				} else if(Tentar.equals("N„o")||Tentar.equals("n„o")){
+				} else if(Tentar.equals("N√£o")||Tentar.equals("n√£o")){
 					System.out.println("Retornando ao programa...");
 					return;
 				}
@@ -177,7 +179,7 @@ public class PesquisarLocatario {
 	}
 		
 	
-	public static void PesquisaPessoaJuridicaNome(ArrayList<PessoaJuridica> PessoasJ) {
+	public static String PesquisaPessoaJuridicaNome(ArrayList<PessoaJuridica> PessoasJ) {
 		
 		
 		System.out.println("Digite o nome social da empresa:");
@@ -195,6 +197,7 @@ public class PesquisarLocatario {
 				System.out.println("CNPJ: "+PessoaJ.getCnpj());
 				System.out.println("Celular: " + PessoaJ.getCelular());
 				Auxiliar=1;
+				return NomePesquisadoJ;
 			}
 		}
 			try {
@@ -206,12 +209,12 @@ public class PesquisarLocatario {
 				}catch (ObjetoNaoEncontradoException e) {
 				System.out.println(e.getMessage());
 				System.out.println("Erro! Pessoa nao encontrado!");
-				System.out.println("Deseja tentar novamente? Digite Sim/sim ou N„o/n„o");
+				System.out.println("Deseja tentar novamente? Digite Sim/sim ou N√£o/n√£o");
 				String Tentar;
 				Tentar=leitor.nextLine();
 				if(Tentar.equals("Sim")||Tentar.equals("sim")){
 					PesquisaPessoaJuridicaNome(PessoasJ);
-				} else if(Tentar.equals("N„o")||Tentar.equals("n„o")){
+				} else if(Tentar.equals("N√£o")||Tentar.equals("n√£o")){
 					System.out.println("Retornando ao programa...");
 					return;
 				}
@@ -248,12 +251,12 @@ public class PesquisarLocatario {
 			}catch (ObjetoNaoEncontradoException e) {
 			System.out.println(e.getMessage());
 			System.out.println("Erro! Pessoa nao encontrado!");
-			System.out.println("Deseja tentar novamente? Digite Sim/sim ou N„o/n„o");
+			System.out.println("Deseja tentar novamente? Digite Sim/sim ou N√£o/n√£o");
 			String Tentar;
 			Tentar=leitor.nextLine();
 			if(Tentar.equals("Sim")||Tentar.equals("sim")){
 				PesquisaPessoaJuridicaNome(PessoasJ);
-			} else if(Tentar.equals("N„o")||Tentar.equals("n„o")){
+			} else if(Tentar.equals("N√£o")||Tentar.equals("n√£o")){
 				System.out.println("Retornando ao programa...");
 				return;
 			}
