@@ -24,7 +24,7 @@ public class MenuGerenciaReserva {
 	
 	public static void CadastrarReserva() {
 		
-		String PFReserva, PJReserva, HoraInicio, HoraFim, DataInicio, DataFim; // Novos metodos nomePF, nomePJ e hora de inicio e fim na classe Reserva.
+		String PFReserva = null, PJReserva = null, HoraInicio, HoraFim, DataInicio, DataFim; // Novos metodos nomePF, nomePJ e hora de inicio e fim na classe Reserva.
 		int Diarias = 0, DTotal = 0, DiInt, DfInt, HiInt, HfInt;
 		
 		System.out.println("Deseja realizar uma reserva para uma pessoa física ou jurídica dentro do sistema?");
@@ -51,7 +51,7 @@ public class MenuGerenciaReserva {
 			System.out.println("Escolha inválida. Tente novamente!!");	
 		}
 		
-		Reserva NovaRes = new Reserva(null, null, 0, 0, null, null, null, null);
+		Reserva NovaRes = new Reserva(PFReserva, PJReserva, 0, 0, null, null, null, null);
 		
 		System.out.println("Criando Reserva...");
 		
