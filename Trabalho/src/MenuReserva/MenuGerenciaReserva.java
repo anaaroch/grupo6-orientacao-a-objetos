@@ -1,10 +1,14 @@
 package MenuReserva;
 
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
+
 import MenuGerenciaLocatario.PesquisarLocatario;
+import gerenciaLocatarios.PessoaFisica;
 import gerenciaReserva.Reserva;
+
 
 public class MenuGerenciaReserva {
 	
@@ -24,8 +28,8 @@ public class MenuGerenciaReserva {
 	
 	public static void CadastrarReserva() {
 		
-		String PFReserva = null, PJReserva = null, HoraInicio, HoraFim, DataInicio, DataFim; // Novos metodos nomePF, nomePJ e hora de inicio e fim na classe Reserva.
-		int Diarias = 0, DTotal = 0, DiInt, DfInt, HiInt, HfInt;
+		String PFReserva = null, PJReserva = null; // Novos metodos nomePF, nomePJ e hora de inicio e fim na classe Reserva.
+		int Diarias = 0, DTotal = 0, HoraInicio, HoraFim, DataInicio, DataFim;
 		
 		System.out.println("Deseja realizar uma reserva para uma pessoa física ou jurídica dentro do sistema?");
 		System.out.println("                                                                                 ");
@@ -51,44 +55,32 @@ public class MenuGerenciaReserva {
 			System.out.println("Escolha inválida. Tente novamente!!");	
 		}
 		
-		Reserva NovaRes = new Reserva(PFReserva, PJReserva, 0, 0, null, null, null, null);
+		Reserva NovaRes = new Reserva(null, null, 0, 0, 0, 0, 0, 0);
 		
 		System.out.println("Criando Reserva...");
 		
 		System.out.println("Coloque a data de expedição da Reserva:");
-		DataInicio = leitorR.nextLine();
+		DataInicio = leitorR.nextInt();
 		NovaRes.setDataInicio(DataInicio);
 		
 		System.out.println("Coloque a hora de expedição da Reserva:");
-		HoraInicio = leitorR.nextLine();
+		HoraInicio = leitorR.nextInt();
 		NovaRes.setHoraInicio(HoraInicio);
 		
 		System.out.println("Coloque a data do fim da Reserva:");
-		DataFim = leitorR.nextLine();
+		DataFim = leitorR.nextInt();
 		NovaRes.setDataFim(DataFim);
 		
 		System.out.println("Coloque a hora do fim da Reserva:");
-		HoraFim = leitorR.nextLine();
+		HoraFim = leitorR.nextInt();
 		NovaRes.setHoraFim(HoraFim);
-		
-		DataInicio = DataInicio.substring(0,2);
-		DiInt = Integer.parseInt(DataInicio);
-		
-		DataFim = DataFim.substring(0,2);
-		DfInt = Integer.parseInt(DataFim);
-		
-		HoraInicio = HoraInicio.substring(0,2);
-		HiInt = Integer.parseInt(HoraInicio);
-		
-		HoraFim = HoraFim.substring(0,2);
-		HiInt = Integer.parseInt(HoraInicio);
 
-		DTotal = DfInt - DiInt;
+		DTotal = DataFim - DataInicio;
 		
-		if (DfInt >= DiInt) {
+		if (DataFim >= DataInicio) {
 			DTotal = DTotal + 1;
 		} else {
-			if (DfInt < DiInt) {
+			if (DataFim < DataInicio) {
 				DTotal = DTotal - 1;
 			}
 		}
@@ -111,9 +103,31 @@ public class MenuGerenciaReserva {
 	
 	public static void EmitirRelatorio() {
 		System.out.println("Método - Emitir Relatório..."); // Imprime arraylist Res
+		
+		System.out.println("Reserva: <numero_da_reserva>");
+		System.out.println("Locatário: <nome_da_PF_ou_PJ>");
+		System.out.println("Responsável pela locaçao: <nome_da_PF>");
+
+		System.out.println("****************************** Dados da Locação ******************************");
+
+		System.out.println("Início: <data_de_inicio> - <hora_de_inicio>");
+		System.out.println("Fim: <data_de_fim> - <hora_de_fim>");
+		System.out.println("Número de diárias calculadas: < numero >");
+
+		System.out.println("Veículo: <Marca_do_Veiculo> - <Modelo_do_Veiculo>");
+		System.out.println("Ano de fabricação / modelo: <ano_fabricacao> / <ano_modelo>");
+		System.out.println("Placa: <numero_da_placa> Renavam: <numero_do_renavam>");
+		System.out.println("Categoria: <nome_da_categoria_do_veiculo>");
+
+		System.out.println("Valor da diária: <valor_diaria>");
+		System.out.println("Valor do seguro de terceiros: <valor_seguro_terceiros>");
+		System.out.println("Valor do seguro próprio: <valor_seguro_proprio>");
+		System.out.println("Valor dos impostos: <valor_impostos>");
+		System.out.println("Valor total da locação: <valor_total>");
+		
 	}
 	public static void EmitirRelatorioConsolidado() {
 		System.out.println("Método - Emitir Relatório Consolidade de Reserva...");
+		
 	}
 }
-
