@@ -10,5 +10,3 @@ Repositório destinado ao desenvolvimento, alinhamento e entregas referente ao p
   <li> Pedro Henrique Ferreira Nunes   → <i> 20/0026151 </i><br></li>
   <li> Wengel Rodrigues Farias         → <i> 19/0118555 </i><br> </li>
   </ul>
-
-Nota ao professor: a branch "entrega2" possui as commits mais recentes para essa segunda entrega do trabalho.
