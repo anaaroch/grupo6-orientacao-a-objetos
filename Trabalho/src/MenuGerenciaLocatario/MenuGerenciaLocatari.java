@@ -7,7 +7,9 @@ import Excecoes.ObjetoNaoEncontradoException;
 import gerenciaLocatarios.PessoaFisica;
 import gerenciaLocatarios.PessoaJuridica;
 
+
 public class MenuGerenciaLocatari {
+	
 	
 	public static Scanner leitorP = new Scanner(System.in);
 	
@@ -42,6 +44,13 @@ public class MenuGerenciaLocatari {
 		case 2:	
 			PessoaJuridica PessoaJ = CadastraLocatario.cadastrarPessoaJuridica();
 			PessoasJ.add(PessoaJ);
+			int Funcionarios = 0;
+			System.out.println("Coloque a quantidade de funcionários:");
+			Funcionarios=leitorP.nextInt();
+			for (int i=0; i<Funcionarios; i++){
+				PessoaFisica PessoaF2=CadastraLocatario.cadastrarPessoaFisica();
+				Pessoas.add(PessoaF2);
+			}
 			break;
 			
 			default:

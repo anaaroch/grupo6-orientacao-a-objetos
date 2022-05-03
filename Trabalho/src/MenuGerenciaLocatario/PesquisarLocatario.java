@@ -57,7 +57,7 @@ public class PesquisarLocatario {
 		String NomePesquisado = leitor.nextLine();
 		System.out.println("Nome Pesquisado: " + NomePesquisado);
 		int Auxiliar=0;
-
+		
 		// Procurando Locatario:
 			for (PessoaFisica PessoaF : Pessoas) {
 				if (PessoaF.getNome().contentEquals(NomePesquisado)) {
@@ -72,8 +72,8 @@ public class PesquisarLocatario {
 			}
 			try {
 				for (PessoaFisica PessoaF : Pessoas) {
-						if (! PessoaF.getCpf().equals(NomePesquisado) && Auxiliar==0) {
-								throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+						if ((! PessoaF.getNome().equals(NomePesquisado) && Auxiliar==0)) {
+								throw new ObjetoNaoEncontradoException(" ");
 						}	
 				} 
 				}catch (ObjetoNaoEncontradoException e) {
@@ -108,13 +108,14 @@ public class PesquisarLocatario {
 					System.out.println("CPF: " + PessoaF.getCpf());
 					System.out.println("Email: " + PessoaF.getEmail());
 					System.out.println("Celular: " + PessoaF.getCelular());
+					System.out.println("\n");
 					Auxiliar=1;
 			}
 			}
 			try {
 				for (PessoaFisica PessoaF : Pessoas) {
 					if (! PessoaF.getCpf().equals(CPFPesquisado) && Auxiliar==0) {
-						throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+						throw new ObjetoNaoEncontradoException(" ");
 					}
 			
 					} 
@@ -158,7 +159,7 @@ public class PesquisarLocatario {
 			try {
 				for (PessoaFisica PessoaF : Pessoas) {
 					if (! PessoaF.getCpf().equals(EmailPesquisado) && Auxiliar==0) {
-						throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+						throw new ObjetoNaoEncontradoException(" ");
 					}	
 				} 
 				}catch (ObjetoNaoEncontradoException e) {
@@ -194,6 +195,7 @@ public class PesquisarLocatario {
 				System.out.println("Email: " + PessoaJ.getEmail());
 				System.out.println("CNPJ: "+PessoaJ.getCnpj());
 				System.out.println("Celular: " + PessoaJ.getCelular());
+				System.out.println("\n");
 				Auxiliar=1;
 			}
 		}
@@ -236,13 +238,14 @@ public class PesquisarLocatario {
 				System.out.println("CNPJ: "+PessoaJ.getCnpj());
 				System.out.println("Email: " + PessoaJ.getEmail());
 				System.out.println("Celular: " + PessoaJ.getCelular());
+				System.out.println("\n");
 				Auxiliar=1;
 			} 
 			}
 		try {
 			for (PessoaJuridica PessoaJ : PessoasJ) {
 				if (! PessoaJ.getNomeSocial().equals(CNPJPesquisado) && Auxiliar==0) {
-					throw new ObjetoNaoEncontradoException("Erro! Pessoa nao encontrado!");
+					throw new ObjetoNaoEncontradoException(" ");
 				}	
 			} 
 			}catch (ObjetoNaoEncontradoException e) {

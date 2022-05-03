@@ -277,7 +277,7 @@ public class CadastrarVeículos {
 		// Caso seja de carga.
 		else if (EscolhaU.equals("Carga")||EscolhaU.equals("carga")){
 				
-				System.out.print("Veículo de Carga");
+				System.out.print("Veículo de Carga \n");
 				System.out.println("Qual é a tara do veículo? ");
 				float Tara = leitorU.nextFloat();
 				

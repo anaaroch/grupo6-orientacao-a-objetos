@@ -4,10 +4,10 @@ package gerenciaLocatarios;
 public class PessoaJuridica extends Locatario{
 	
 	private String nomeSocial;
-	private CNPJ cnpj;
+	private String cnpj;
 	private PessoaFisica funcionarios[];
 
-	public PessoaJuridica(String nomeSocial, String email, String celular, Endereco endereco) {
+	public PessoaJuridica(String nomeSocial, String email, String celular,  Endereco endereco) {
 		super(email, celular, endereco);
 		this.nomeSocial = nomeSocial;
 	}
@@ -20,7 +20,7 @@ public class PessoaJuridica extends Locatario{
 		this.nomeSocial = nomeSocial;
 	}
 	
-	public void setCnpj(CNPJ cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 	
@@ -32,7 +32,7 @@ public class PessoaJuridica extends Locatario{
 		return nomeSocial;
 	}
 
-	public CNPJ getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
 

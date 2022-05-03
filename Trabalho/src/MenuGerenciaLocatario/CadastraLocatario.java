@@ -1,5 +1,6 @@
 package MenuGerenciaLocatario;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Excecoes.CampoEmBrancoException;
@@ -36,7 +37,7 @@ public class CadastraLocatario {
 		
 		
 		System.out.println("Cadastrando Locatário...");
-		
+		clearBuffer(leitorP);
 		System.out.println("Coloque o seu Nome Completo:");
 		PessoaF.setNome(leitorP.nextLine());
 		
@@ -54,7 +55,7 @@ public class CadastraLocatario {
 		boolean validaEmail = checaCampoBranco(PessoaF.getEmail());
 		
 		try {
-			if (validaNome == false || validaCPF == false || validaEmail == false ) {
+			if (validaNome == false || validaCPF == false || validaEmail == false  ) {
 				throw new CampoEmBrancoException("Erro! Um campo foi deixado em branco!");
 			}
 		} catch (CampoEmBrancoException e) {
@@ -135,6 +136,7 @@ public class CadastraLocatario {
 
 	}
 
+	
 	public static PessoaJuridica cadastrarPessoaJuridica() {
 		Endereco enderecoJ=new Endereco(null, null, null, null, null, null, null);
 		PessoaJuridica PessoaJ=new PessoaJuridica(null, null, null, null);
@@ -170,6 +172,8 @@ public class CadastraLocatario {
 		
 		System.out.println("Cep:");
 		enderecoJ.setCep(leitorP.nextLine());
+	
+		
 		
 		System.out.println("- - - - - - - - - - - - - - - ");	
 		System.out.println("Dados cadastrados de Pessoa Jurídica: ");

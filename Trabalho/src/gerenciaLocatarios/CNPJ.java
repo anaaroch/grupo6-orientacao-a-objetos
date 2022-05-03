@@ -8,7 +8,7 @@ public class CNPJ {
 		this.cnpj = cnpj;
 	}
 	
-	public void setCnpj(String cnpj) {
+	public void setCnpj2(String cnpj) {
 		this.cnpj = cnpj;
 	}
 	
