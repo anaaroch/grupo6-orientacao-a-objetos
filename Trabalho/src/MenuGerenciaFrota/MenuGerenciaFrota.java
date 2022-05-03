@@ -26,7 +26,7 @@ public class MenuGerenciaFrota {
 		System.out.println("                  Escolha uma dessas opções:                 ");
 	}
 	
-	public static void CadastroVeiculo() {
+	public static void CadastroVeiculo(ArrayList<Veiculo> veiculos) {
 		
 		// Guardando dados basicos do veículo.
 		Veiculo dadosBasicos = CadastrarVeículos.cadastro();
@@ -63,7 +63,7 @@ public class MenuGerenciaFrota {
 		
 	}
 	
-	public static void PesquisarVeiculos() {
+	public static void PesquisarVeiculos(ArrayList<Veiculo> veiculos) {
 		
 		// Chamando o menu
 		PesquisarVeículos.PesquisaVeiculo();
@@ -86,7 +86,7 @@ public class MenuGerenciaFrota {
 
 	}
 	
-	public static void AtualizaDados() {
+	public static void AtualizaDados(ArrayList<Veiculo> veiculos) {
 				
 		System.out.println("Bem vindo ao Método Atualiza Dados.");
 		MetodoAtualizaDados.AtualizaBasico(veiculos);
@@ -116,7 +116,7 @@ public class MenuGerenciaFrota {
 		}*/
 	}
 
-	public static void RemoveVeiculo() {
+	public static void RemoveVeiculo(ArrayList<Veiculo> veiculos) {
 
 		System.out.println("\n\nMétodo Remove Veículo!");
 		System.out.println("Digite o renavam do veículo a ser removido:");

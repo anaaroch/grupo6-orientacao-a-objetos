@@ -45,7 +45,7 @@ public class MenuGerenciaLocatari {
 			PessoaJuridica PessoaJ = CadastraLocatario.cadastrarPessoaJuridica();
 			PessoasJ.add(PessoaJ);
 			int Funcionarios = 0;
-			System.out.println("Coloque a quantidade de funcionários:");
+			System.out.println("Coloque a quantidade de funcionários que deseja cadastrar:");
 			Funcionarios=leitorP.nextInt();
 			for (int i=0; i<Funcionarios; i++){
 				PessoaFisica PessoaF2=CadastraLocatario.cadastrarPessoaFisica();

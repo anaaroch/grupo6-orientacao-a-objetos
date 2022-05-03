@@ -4,8 +4,10 @@ public class Reserva {
 	
 	private int id,
 		    diarias,
-		    dataInicio,
-	            dataFim,
+		    dataInicioDia,
+		    dataInicioMes,
+	            dataFimDia,
+	            dataFimMes,
 	            horaInicio,
 	            horaFim;
 	
@@ -15,13 +17,16 @@ public class Reserva {
 	
 	private ValorTotal total;
 	
-	public Reserva(String nomePF, String nomePJ, int id, int diarias, int dataInicio, int dataFim, int horaInicio, int horaFim) {
+	public Reserva(String nomePF, String nomePJ, int id, int diarias, int dataInicioDia, int dataInicioMes,
+			int dataFimDia, int dataFimMes, int horaInicio, int horaFim) {
 		this.nomePF = nomePF;
 		this.nomePJ = nomePJ;
 		this.id = id;
 		this.diarias = diarias;
-		this.dataInicio = dataInicio;
-		this.dataFim = dataFim;
+		this.dataInicioDia = dataInicioDia;
+		this.dataInicioMes = dataInicioMes;
+		this.dataFimDia = dataFimDia;
+		this.dataFimMes = dataFimMes;
 		this.horaInicio = horaInicio;
 		this.horaFim = horaFim;
 	}
@@ -58,12 +63,20 @@ public class Reserva {
 		this.nomePJ = nomePJ;
 	}
 	
-	public int getDataFim() {
-		return dataFim;
+	public int getDataFimDia() {
+		return dataFimDia;
 	}
 
-	public void setDataFim(int dataFim) {
-		this.dataFim = dataFim;
+	public void setDataFimDia(int dataFimDia) {
+		this.dataFimDia = dataFimDia;
+	}
+	
+	public int getDataFimMes() {
+		return dataFimMes;
+	}
+
+	public void setDataFimMes(int dataFimMes) {
+		this.dataFimMes = dataFimMes;
 	}
 
 	public ValorTotal getTotal() {
@@ -82,12 +95,20 @@ public class Reserva {
 		this.horaFim = horaFim;
 	}
 	
-	public int getDataInicio() {
-		return dataInicio;
+	public int getDataInicioDia() {
+		return dataInicioDia;
 	}
 
-	public void setDataInicio(int dataInicio) {
-		this.dataInicio = dataInicio;
+	public void setDataInicioDia(int dataInicioDia) {
+		this.dataInicioDia = dataInicioDia;
+	}
+	
+	public int getDataInicioMes() {
+		return dataInicioMes;
+	}
+
+	public void setDataInicioMes(int dataInicioMes) {
+		this.dataInicioMes = dataInicioMes;
 	}
 	
 }
