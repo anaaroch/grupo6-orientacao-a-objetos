@@ -8,8 +8,8 @@ public class Reserva {
 		    dataInicioMes,
 	            dataFimDia,
 	            dataFimMes,
-	            horaInicio,
-	            horaFim;
+	            qntDias;
+
 	
 	private String nomePF, nomePJ;
 	
@@ -18,7 +18,7 @@ public class Reserva {
 	private ValorTotal total;
 	
 	public Reserva(String nomePF, String nomePJ, int id, int diarias, int dataInicioDia, int dataInicioMes,
-			int dataFimDia, int dataFimMes, int horaInicio, int horaFim) {
+			int dataFimDia, int dataFimMes, int qntDias) {
 		this.nomePF = nomePF;
 		this.nomePJ = nomePJ;
 		this.id = id;
@@ -27,8 +27,6 @@ public class Reserva {
 		this.dataInicioMes = dataInicioMes;
 		this.dataFimDia = dataFimDia;
 		this.dataFimMes = dataFimMes;
-		this.horaInicio = horaInicio;
-		this.horaFim = horaFim;
 	}
 
 	public int getId() {
@@ -87,14 +85,6 @@ public class Reserva {
 		this.total = total;
 	}
 	
-	public void setHoraInicio(int horaInicio) {
-		this.horaInicio = horaInicio;
-	}
-	
-	public void setHoraFim(int horaFim) {
-		this.horaFim = horaFim;
-	}
-	
 	public int getDataInicioDia() {
 		return dataInicioDia;
 	}
@@ -109,6 +99,14 @@ public class Reserva {
 
 	public void setDataInicioMes(int dataInicioMes) {
 		this.dataInicioMes = dataInicioMes;
+	}
+
+	public int getQntDias() {
+		return qntDias;
+	}
+
+	public void setQntDias(int qntDias) {
+		this.qntDias = qntDias;
 	}
 	
 }

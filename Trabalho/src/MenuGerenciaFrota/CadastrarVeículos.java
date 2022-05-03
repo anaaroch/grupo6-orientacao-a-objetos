@@ -21,7 +21,7 @@ public class CadastrarVeículos {
 
 		// Criando os objetos auxiliares.
 		Veiculo veiculoAuxiliar = new Veiculo(null, null, 0, 0, 0, 0, null);
-		Diaria diariaAuxiliar = new Diaria(null, null, null, null);
+
 		
 		Scanner leitorC = new Scanner(System.in);
 		
@@ -71,20 +71,6 @@ public class CadastrarVeículos {
 			System.out.println("Coloque a capacidade do tanque: ");
 			veiculoAuxiliar.setCapacidadeTanque(leitorC.nextInt());
 			
-			System.out.println("Coloque o valor da diaria normal: ");
-			diariaAuxiliar.setDiariaNormal(leitorC.nextFloat());
-			
-			System.out.println("Coloque o valor da diaria reduzida: ");
-			diariaAuxiliar.setDiariaReduzida(leitorC.nextFloat());
-		
-			System.out.println("Coloque o valor da diaria empresarial: ");
-			diariaAuxiliar.setDiariaEmpresarial(leitorC.nextFloat());
-			
-			System.out.println("Coloque o valor mensal da diaria:");
-			diariaAuxiliar.setValorMensal(leitorC.nextFloat());
-			
-			// Guardando os valores da diária.
-			veiculoAuxiliar.setDiaria(diariaAuxiliar);
 			
 			// Mostrando os dados digitados
 			System.out.println("\n");

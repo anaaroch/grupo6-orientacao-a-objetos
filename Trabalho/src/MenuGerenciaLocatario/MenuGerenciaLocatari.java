@@ -13,8 +13,7 @@ public class MenuGerenciaLocatari {
 	
 	public static Scanner leitorP = new Scanner(System.in);
 	
-	static ArrayList<PessoaFisica> Pessoas = new ArrayList<PessoaFisica>();
-	static ArrayList<PessoaJuridica> PessoasJ = new ArrayList<PessoaJuridica>();
+	
 
 	public static void MenuLocatario() {
 		
@@ -28,7 +27,7 @@ public class MenuGerenciaLocatari {
 			
 		}
 	
-	public static void cadastrarlocatario() {
+	public static void cadastrarlocatario(ArrayList<PessoaFisica> pessoas, ArrayList<PessoaJuridica> pessoasJ) {
 		CadastraLocatario.CadastrarPessoa();
 		
 		int escolhaL;
@@ -39,17 +38,17 @@ public class MenuGerenciaLocatari {
 		switch(escolhaL) {
 		case 1:
 			PessoaFisica PessoaF = CadastraLocatario.cadastrarPessoaFisica();
-			Pessoas.add(PessoaF);
+			pessoas.add(PessoaF);
 			break;
 		case 2:	
 			PessoaJuridica PessoaJ = CadastraLocatario.cadastrarPessoaJuridica();
-			PessoasJ.add(PessoaJ);
+			pessoasJ.add(PessoaJ);
 			int Funcionarios = 0;
-			System.out.println("Coloque a quantidade de funcionários que deseja cadastrar:");
+			System.out.println("Coloque a quantidade de funcionários:");
 			Funcionarios=leitorP.nextInt();
 			for (int i=0; i<Funcionarios; i++){
 				PessoaFisica PessoaF2=CadastraLocatario.cadastrarPessoaFisica();
-				Pessoas.add(PessoaF2);
+				pessoas.add(PessoaF2);
 			}
 			break;
 			
@@ -57,7 +56,7 @@ public class MenuGerenciaLocatari {
 				System.out.println("Escolha inválida. Tente novamente!!");
 		}
 	}
-	public static void AlterarLocatario() {
+	public static void AlterarLocatario(ArrayList<PessoaFisica> pessoas, ArrayList<PessoaJuridica> pessoasJ) {
 		AlterarLocatario.MenuAltera();
 		int escolhaA;
 		
@@ -66,10 +65,10 @@ public class MenuGerenciaLocatari {
 		
 		switch(escolhaA) {
 		case 1:
-			AlterarLocatario.AlterarPessoaFisica(Pessoas);
+			AlterarLocatario.AlterarPessoaFisica(pessoas);
 			break;
 		case 2:	
-			AlterarLocatario.AlterarPessoaJuridica(PessoasJ);
+			AlterarLocatario.AlterarPessoaJuridica(pessoasJ);
 			break;
 			
 			default:
@@ -77,7 +76,7 @@ public class MenuGerenciaLocatari {
 		}
 	}
 	
-	public static void pesquisarlocatario() {
+	public static void pesquisarlocatario(ArrayList<PessoaFisica> pessoas, ArrayList<PessoaJuridica> pessoasJ) {
 		PesquisarLocatario.MenuPesquisa();
 		
 		int escolhaL;
@@ -95,13 +94,13 @@ public class MenuGerenciaLocatari {
 			// Chamando o metodo de acordo com a escolha.
 			switch(escolhaPF) {
 			case 1:
-				PesquisarLocatario.PesquisaFisicaPessoaNome(Pessoas);
+				PesquisarLocatario.PesquisaFisicaPessoaNome(pessoas);
 				break;
 			case 2:	
-				PesquisarLocatario.PesquisaFisicaPessoaCPF(Pessoas);
+				PesquisarLocatario.PesquisaFisicaPessoaCPF(pessoas);
 				break;
 			case 3:
-				PesquisarLocatario.PesquisaFisicaPessoaEmail(Pessoas);
+				PesquisarLocatario.PesquisaFisicaPessoaEmail(pessoas);
 				break;
 			default:
 				System.out.println("Escolha inválida. Tente novamente!!"); 
@@ -117,10 +116,10 @@ public class MenuGerenciaLocatari {
 			// Chamando o metodo de acordo com a escolha.
 			switch(escolhaPJ) {
 			case 1:
-				PesquisarLocatario.PesquisaPessoaJuridicaNome(PessoasJ);
+				PesquisarLocatario.PesquisaPessoaJuridicaNome(pessoasJ);
 				break;
 			case 2:	
-				PesquisarLocatario.PesquisaPessoaJuridicaCNPJ(PessoasJ);
+				PesquisarLocatario.PesquisaPessoaJuridicaCNPJ(pessoasJ);
 				break;
 
 			default:
@@ -131,7 +130,7 @@ public class MenuGerenciaLocatari {
 		
 	}
 	
-	public static void excluirlocatario() throws ObjetoNaoEncontradoException {
+	public static void excluirlocatario(ArrayList<PessoaFisica> pessoas, ArrayList<PessoaJuridica> pessoasJ) throws ObjetoNaoEncontradoException {
 		ExcluirLocatario.MenuExcluir();
 
 		int escolhaE;
@@ -140,10 +139,10 @@ public class MenuGerenciaLocatari {
 		
 		switch(escolhaE) {
 		case 1:
-			ExcluirLocatario.ExcluiPessoaFisicaNome(Pessoas);
+			ExcluirLocatario.ExcluiPessoaFisicaNome(pessoas);
 			break;
 		case 2:	
-			ExcluirLocatario.ExcluiPessoaJuridicaNome(PessoasJ);
+			ExcluirLocatario.ExcluiPessoaJuridicaNome(pessoasJ);
 			break;
 			
 			default:
