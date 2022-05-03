@@ -1,17 +1,22 @@
 package Menu;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Excecoes.ObjetoNaoEncontradoException;
 import MenuGerenciaFrota.MenuGerenciaFrota;
 import MenuGerenciaLocatario.MenuGerenciaLocatari;
 import MenuReserva.MenuGerenciaReserva;
+import gerenciaFrota.Veiculo;
+
 
 
 public class Menu {
 	
 	// Criando o leitor que vai ser usado em toda a classe.
 	public static Scanner scan = new Scanner(System.in);
+	
+	static ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
 	
 	public static void GerenciaLoc() throws ObjetoNaoEncontradoException {
 		MenuGerenciaLocatari GerenciaLocatario=new MenuGerenciaLocatari();
@@ -44,21 +49,22 @@ public class Menu {
 		
 		MenuGerenciaFrota.MenuFrotaPrincipal();
 		
+		
 		int escolhaF;
 		escolhaF = scan.nextInt();
 		
 		switch(escolhaF) {
 		case 1:
-			MenuGerenciaFrota.CadastroVeiculo();
+			MenuGerenciaFrota.CadastroVeiculo(veiculos);
 			break;
 		case 2:	
-			MenuGerenciaFrota.PesquisarVeiculos();
+			MenuGerenciaFrota.PesquisarVeiculos(veiculos);
 			break;
 		case 3:
-			MenuGerenciaFrota.AtualizaDados();
+			MenuGerenciaFrota.AtualizaDados(veiculos);
 			break;
 		case 4:
-			MenuGerenciaFrota.RemoveVeiculo();	
+			MenuGerenciaFrota.RemoveVeiculo(veiculos);	
 			break;
 			
 		default:
@@ -71,28 +77,8 @@ public class Menu {
 		
 		MenuGerenciaReserva GerenciarReserva=new MenuGerenciaReserva();
 		MenuGerenciaReserva.MenuLocatario();
-		
-		int escolhaR;
-		
-		Scanner ler=new Scanner(System.in);
-		
-		escolhaR=ler.nextInt();
-		
-		switch(escolhaR) {
-		case 1:
-			GerenciarReserva.CadastrarReserva();
-			break;
-		case 2:	
-			GerenciarReserva.EmitirRelatorio();
-			break;
-		case 3:
-			GerenciarReserva.EmitirRelatorioConsolidado();
-			break;
-			
-			default:
-				System.out.println("Escolha inválida. Tente novamente!!");
+		GerenciarReserva.CadastrarReservaPessoa(veiculos);
 		}
-	}
 	
 	public static void Sair() {
 		Scanner sair =new Scanner(System.in);
